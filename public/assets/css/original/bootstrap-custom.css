@@ -1,0 +1,26 @@
+body{
+  font-size:24px;
+}
+
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.navbar-brand{
+	font-size:30px;
+}
+.img-responsive{
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.navbar-inverse {
+  background-color: #03132b;
+  border-color: #080808;
+}
+.navbar-default .navbar-nav > li > a {
+  color: slategray;
+}
+.navbar-default .navbar-brand {
+	color: slategray;
+}

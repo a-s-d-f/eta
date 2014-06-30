@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'dfp';
+    src: url('../../fonts/dfp.ttf') format('truetype');
+}
+
+html, body,#container{
+	font-family: 'dfp';
+	height: 100%;
+}
+#header{
+	width:100%;
+	min-height:100%;
+	background-image:url('../../img/etaLogo.gif');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-attachment:fixed;
+	margin-right:0;
+	margin-left:0;
+}
+#message-box{
+	position: absolute;
+    bottom: 0;
+	text-align:center;
+	font-size:2em;
+	left:50%;
+	margin-left:-150px;
+}
+
+
+.dropdown-menu{
+	font-size:20px;
+}
+.effect1{
+	-webkit-transform: translateY(51px);
+	transform: translateY(51px);
+}
+
+.effect-none{
+	display:none;
+}
+#seat{
+	padding-top:50px;
+}
+#notification{
+	padding-top:50px;
+}
+#intro{
+	padding-top:50px;
+}
+#recruit{
+	padding-top:50px;
+}
+#menulist{
+	padding-top:50px;
+}
+#winelist{
+	padding-top:50px;
+}
+#social>a{
+	text-decoration:none;
+}
+#navbar{
+	top:-51px;
+	font-size:20px;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+#edit-content>.row{
+	margin-top:20px;
+}
+.winelist>dt{
+	font-size:20px;
+}
+.winelist>dd{
+	font-size:16px;
+}
+#content{
+	min-height:100%;
+	position:relative;
+}
+#footer{
+	background-color:#03132b;
+	color:slategray;
+	padding-bottom:30px;
+	font-size:20px;
+}
+.margin-top1{
+	margin-top:10px;
+}
+.margin-top2{
+	margin-top:20px;
+}
+.margin-top3{
+	margin-top:30px;
+}
+.margin-top4{
+	margin-top:40px;
+}
+.margin-bottom{
+	margin-bottom:30px;
+}
+
+.max-height{
+	min-height:100%;
+}
+
+.button {
+	display: inline-block;
+	width: 300px;
+	height: 84px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 84px;
+	outline: none;
+}
+.button::before,
+.button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.button,
+.button::before,
+.button::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.button {
+	position: relative;
+	-webkit-perspective: 300px;
+	perspective: 300px;
+}
+.button span {
+	display: block;
+	position: absolute;
+	width: 300px;
+	height: 90px;
+	border: 2px solid #03132b;
+	text-align: center;
+	line-height: 90px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .6s;
+	transition: all .6s;
+	pointer-events: none;
+}
+.button span:nth-child(1) {
+	background-color: #03132b;
+	color: #fff;
+	-webkit-transform: rotateX(90deg);
+	-moz-transform: rotateX(90deg);
+	transform: rotateX(90deg);
+	-webkit-transform-origin: 50% 50% -45px;
+	-moz-transform-origin: 50% 50% -45px;
+	transform-origin: 50% 50% -45px;
+}
+.button span:nth-child(2) {
+	background-color: #fff;
+	color: #333;
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	-webkit-transform-origin: 50% 50% -45px;
+	-moz-transform-origin: 50% 50% -45px;
+	transform-origin: 50% 50% -45px;
+}
+.button:hover span:nth-child(1) {
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+}
+.button:hover span:nth-child(2) {
+	background-color: #333;
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+}
+.hidden{
+	display:none;
+}
+.link:hover{
+	color:#03132b;
+	text-decoration:none;
+}
+.link{
+	color:#333;
+}
+.margin-1{
+	margin: 10px;
+}
+.margin-2{
+	margin: 20px;
+}
+
+.isotopeMenu{
+	margin-left:50px;
+	margin-right:50px;
+}
+
+/**** Isotope Filtering ****/
+.item {
+  z-index: 2;
+}
+
+.isotope-hidden.item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotopeWrapper {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.social-icon{
+	border-radius: 50%;
+	opacity:0.5;
+	width:100px;
+	-webkit-transition:0.3s;
+	margin-right:10px;
+}
+.social-icon:hover{
+	opacity:1;
+}
