@@ -27,22 +27,14 @@
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">リンク<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="">Facebook</a>
+							<a href="https://www.facebook.com/winebar.eta">Facebook</a>
 						</li>
 						<li>
-							<a href="">ブログ</a>
-						</li>
-						<li>
-							<a href="">ひとみワイナリー</a>
+							<a href="http://www.nigoriwine.jp/">ひとみワイナリー</a>
 						</li>
 					</ul>
 				</li>
 			</ul>
-			<form class="navbar-form navbar-right" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" />
-				</div> <button type="submit" class="btn btn-default">検索</button>
-			</form>
 		</div>
 	</nav>
 	<div id="message-box">

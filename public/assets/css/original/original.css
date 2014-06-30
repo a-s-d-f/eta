@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'dfp';
-    src: url('../../fonts/dfp.ttf') format('truetype');
+	font-family: 'dfp';
+	src: url('../../fonts/dfp.ttf') format('truetype');
 }
 
 html, body,#container{
@@ -14,18 +14,20 @@ html, body,#container{
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-attachment:fixed;
+	-webkit-background-repeat:no-repeat;
+	-webkit-background-position:center center;
+	-webkit-background-attachment:fixed;
 	margin-right:0;
 	margin-left:0;
 }
 #message-box{
 	position: absolute;
-    bottom: 0;
+	bottom: 0;
 	text-align:center;
 	font-size:2em;
 	left:50%;
 	margin-left:-150px;
 }
-
 
 .dropdown-menu{
 	font-size:20px;
@@ -205,22 +207,22 @@ html, body,#container{
 
 /**** Isotope Filtering ****/
 .item {
-  z-index: 2;
+	z-index: 2;
 }
 
 .isotope-hidden.item {
-  pointer-events: none;
-  z-index: 1;
+	pointer-events: none;
+	z-index: 1;
 }
 
 /**** Isotope CSS3 transitions ****/
 
 .isotopeWrapper {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
+	-webkit-transition-property: height, width;
+	-moz-transition-property: height, width;
+	-ms-transition-property: height, width;
+	-o-transition-property: height, width;
+	transition-property: height, width;
 }
 
 .social-icon{
@@ -228,6 +230,10 @@ html, body,#container{
 	opacity:0.5;
 	width:100px;
 	-webkit-transition:0.3s;
+	-moz-transition:0.3s;
+	-ms-transition:0.3s;
+	-o-transition:0.3s;
+	transition:0.3s;
 	margin-right:10px;
 }
 .social-icon:hover{
