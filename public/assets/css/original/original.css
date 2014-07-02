@@ -10,14 +10,10 @@ html, body,#container{
 #header{
 	width:100%;
 	min-height:100%;
-	background:url('../../img/etaLogo.gif') center center no-repeat;
-	background-attachment:fixed;
-	-webkit-background:url('../../img/etaLogo.gif') center center no-repeat;
-	-webkit-background-attachment:fixed;
-	-moz-background:url('../../img/etaLogo.gif') center center no-repeat;
-	-moz-background-attachment:fixed;
-	-ms-background:url('../../img/etaLogo.gif') center center no-repeat;
-	-ms-background-attachment:fixed;
+	-webkit-background:url('../../img/etaLogo.gif') no-repeat fixed center center;
+	-moz-background:url('../../img/etaLogo.gif') no-repeat fixed center center;
+	-ms-background:url('../../img/etaLogo.gif') no-repeat fixed center center;
+	background:url('../../img/etaLogo.gif') no-repeat fixed center center;
 	margin-right:0;
 	margin-left:0;
 }
