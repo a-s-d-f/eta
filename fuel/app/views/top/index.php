@@ -23,7 +23,7 @@
 				<li>
 					<a href="#recruit">採用情報</a>
 				</li>
-				<li class="dropdown">
+				<!-- <li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">リンク<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
@@ -33,7 +33,7 @@
 							<a href="http://www.nigoriwine.jp/">ひとみワイナリー</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</nav>
@@ -46,7 +46,7 @@
 		<h1 class="text-center">
 			店舗紹介
 		</h1>
-		<dl class="col-md-offset-2 dl-horizontal">
+		<dl class="col-sm-offset-1 dl-horizontal">
 			<?php foreach($intro as $val):?>
 				<dt><?php echo $val["title"];?></dt>
 				<?php if($val["title"] == "住所"):?>
@@ -71,7 +71,7 @@
 		<h1 class="text-center">
 			お知らせ
 		</h1>
-		<dl class="col-md-offset-3 dl-horizontal">
+		<dl class="col-sm-offset-2 dl-horizontal">
 			<?php foreach($notification as $val):?>
 				<a href="#notification" blank="" style="text-decoration:none;"  onClick=<?php echo "window.open('notification?id=".$val['id']."','お知らせの詳細','width=500,height=600'); return false;"?>>
 					<dt><?php  echo date("Y-m-d",$val["created_at"])?></dt>
@@ -152,8 +152,8 @@
 	</div>
 </div>
 <div class="row clearfix">
-	<div class="col-sm-offset-2 col-md-7 column" id="recruit">
-		<h1 class="col-sm-offset-6">
+	<div class="col-md-12 column" id="recruit">
+		<h1 class="text-center">
 			採用情報
 		</h1>
 		<dl class="dl-horizontal">
