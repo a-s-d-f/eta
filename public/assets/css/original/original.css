@@ -211,13 +211,15 @@ html, body,#container{
 
 @media(min-width: 768px){
 	.isotopeMenu{
-	margin-left:50px;
-	margin-right:50px;
+		margin-left:50px;
+		margin-right:50px;
+	}
 }
 @media(max-width: 767px){
 	.isotopeMenu{
-	margin-left:10px;
-	margin-right:10px;
+		margin-left:10px;
+		margin-right:10px;
+	}
 }
 
 
@@ -244,7 +246,7 @@ html, body,#container{
 .social-icon{
 	border-radius: 50%;
 	opacity:0.5;
-	width:100px;
+	width:100%;
 	-webkit-transition:0.3s;
 	-moz-transition:0.3s;
 	-ms-transition:0.3s;

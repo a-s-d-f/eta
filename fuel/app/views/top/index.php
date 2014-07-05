@@ -142,7 +142,7 @@
 		</h1>
 		<div class="margin-top2" id="photo">
 			<?php foreach($seat as $val):?>
-				<div class="col-md-6 col-lg-4 column margin-top2">
+				<div class="col-md-6 col-lg-4 column margin-2">
 					<a href=<?php echo Uri::base().'assets/img/'.$val["imgurl"];?> rel="lightbox-cats" title=<?php echo $val["name"];?>>
 						<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
 					</a>
@@ -189,11 +189,15 @@
 		<h3>
 			ソーシャル
 		</h3>
-		<a href="https://www.facebook.com/winebar.eta" target="_blank">
-			<?php echo Asset::img("facebook.png",array("class"=>"social-icon"));?>
-		</a>
-		<a href=<?php echo Uri::base().'assets/img/qr.gif';?> rel="lightbox" title="line_QRcode">
-			<?php echo Asset::img("line.png",array("class"=>"social-icon"));?>
-		</a>
+		<div class="col-xs-6">
+			<a href="https://www.facebook.com/winebar.eta" target="_blank">
+				<?php echo Asset::img("facebook.png",array("class"=>"social-icon"));?>
+			</a>
+		</div>
+		<div class="col-xs-6">
+			<a href=<?php echo Uri::base().'assets/img/qr.gif';?> rel="lightbox" title="line_QRcode">
+				<?php echo Asset::img("line.png",array("class"=>"social-icon"));?>
+			</a>
+		</div>
 	</div>
 </div>
