@@ -89,9 +89,7 @@ window.classie = classie;
 	});
 
 	$(function() {
-		$(window).load(function () {
-			var navbar = document.getElementById( 'navbar' );
-			var msg = document.getElementById('message-box');
+		$(window).scroll(function () {
 			var s = $(this).scrollTop();
 			var m = document.getElementById("header").clientHeight;
 			if(s > 1){
@@ -100,14 +98,15 @@ window.classie = classie;
 				$('#message-box').fadeIn('fast');
 			}
 			if(s > m-70) {
-				classie.add( navbar, 'effect1');
+				$('#navbar').show('slow');
 			} else if(s <= 0) {
-				classie.remove( navbar, 'effect1');
+				$('#navbar').hide('slow');
 			}
 		});
 	});
 	$(function(){
 		$(window).load(function() {
+			$('#navbar').hide();
 			var $menuContainer = $('.isotopeMenu');
 			var $wineContainer = $('.isotopeWine');
 
