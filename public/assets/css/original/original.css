@@ -29,10 +29,10 @@ html, body,#container{
 .dropdown-menu{
 	font-size:20px;
 }
-.effect1{
+/*.effect1{
 	-webkit-transform: translateY(51px);
 	transform: translateY(51px);
-}
+}*/
 
 .effect-none{
 	display:none;
@@ -59,10 +59,10 @@ html, body,#container{
 	text-decoration:none;
 }
 #navbar{
-	top:-51px;
+	/*top:-51px;*/
 	font-size:20px;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
+	/*-webkit-transition: all 0.5s;*/
+	/*transition: all 0.5s;*/
 }
 #edit-content>.row{
 	margin-top:20px;
@@ -241,6 +241,12 @@ html, body,#container{
 	-ms-transition-property: height, width;
 	-o-transition-property: height, width;
 	transition-property: height, width;
+}
+
+@media(min-width:768px) and (max-width:991px){
+	.social-icon{
+		width:50%;
+	}
 }
 
 .social-icon{

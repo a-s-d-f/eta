@@ -89,7 +89,7 @@ window.classie = classie;
 	});
 
 	$(function() {
-		$(window).scroll(function () {
+		$(window).load(function () {
 			var navbar = document.getElementById( 'navbar' );
 			var msg = document.getElementById('message-box');
 			var s = $(this).scrollTop();
