@@ -24,3 +24,9 @@ body{
 .navbar-default .navbar-brand {
 	color: slategray;
 }
+
+@media(max-width:767px){
+  dt{
+    margin-top:13px;
+  }
+}

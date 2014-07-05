@@ -91,7 +91,7 @@
 			<a class="btn btn-lg btn-default" type="button" data-filter=".food"> 主菜</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".snack"> つまみ</a>
 		</div>
-		<div class="row clearfix margin-top2 text-left isotopeMenu">
+		<div class="margin-top2 text-left isotopeMenu">
 			<?php foreach($menu as $val):?>
 				<div <?php echo "class='col-sm-6 col-lg-4 item ".$val["type"]."'";?>>
 				<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
@@ -140,11 +140,11 @@
 		<h1 class="text-center">
 			店内画像
 		</h1>
-		<div class="row clearfix margin-top2" id="photo">
+		<div class="margin-top2" id="photo">
 			<?php foreach($seat as $val):?>
-				<div class="col-md-6 col-lg-4 column">
+				<div class="col-md-6 col-lg-4 column margin-top2">
 					<a href=<?php echo Uri::base().'assets/img/'.$val["imgurl"];?> rel="lightbox-cats" title=<?php echo $val["name"];?>>
-						<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive margin-2'));?>
+						<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
 					</a>
 				</div>
 			<?php endforeach;?>
