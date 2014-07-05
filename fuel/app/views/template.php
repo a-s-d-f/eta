@@ -6,7 +6,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink"
 lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=1024, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<title>いーた</title>
 	<?php echo Asset::css("bootstrap/bootstrap.css");?>
 	<?php echo Asset::css("original/bootstrap-custom.css");?>
