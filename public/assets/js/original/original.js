@@ -75,13 +75,34 @@ window.classie = classie;
 	}
 
 	$(function(){
+		var agent = navigator.userAgent;
+		$('a[data-filter^=#]').click(function(){
+			var href= $(this).attr("data-filter");
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			if(agent.search(/iPhone/) != -1 || agent.search(/iPad/) != -1 || agent.search(/Android/) != -1){
+				setTimeout(function(){
+					var speed = 700;
+					var position = target.offset().top;
+					$("html, body").animate({scrollTop:position}, speed, "swing");
+					return false;
+				},1000);
+			}else{
+				var speed = 1000;
+				var position = target.offset().top;
+				$("html, body").animate({scrollTop:position}, speed, "swing");
+				return false;
+			}
+		});
+	});
+
+	$(function(){
 		$('a[href^=#]').click(function(){
+			var href= $(this).attr("href");
+			var target = $(href == "#" || href == "" ? 'html' : href);
 			if($(this).attr("href") == "#carousel-173712" || $(this).attr("rel") == "lightbox-cats"){
 				return false;
 			}
 			var speed = 1000;
-			var href= $(this).attr("href");
-			var target = $(href == "#" || href == "" ? 'html' : href);
 			var position = target.offset().top;
 			$("html, body").animate({scrollTop:position}, speed, "swing");
 			return false;
@@ -147,5 +168,5 @@ window.classie = classie;
 				return false;
 			});
 		});
-	});
+});
 

@@ -37,8 +37,8 @@
 			</ul>
 		</div>
 	</nav>
-	<div id="message-box">
-		<a class="button" href="#intro"><span>イータ</span><span>葡萄酒屋</span></a>
+	<div id="message-box" style="cursor: pointer;cursor: hand;">
+		<a class="button" data-filter="#intro" id="message"><span>イータ</span><span>葡萄酒屋</span></a>
 	</div>
 </div>
 <div class="row">
