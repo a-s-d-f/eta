@@ -40,6 +40,7 @@
 	<div id="message-box" style="cursor: pointer;cursor: hand;">
 		<a class="button" data-filter="#intro" id="message"><span>イータ</span><span>葡萄酒屋</span></a>
 	</div>
+	<div style="clear:both;"></div>
 </div>
 <div class="row">
 	<div class="col-md-12 column" style="" id="intro">
