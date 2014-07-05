@@ -41,7 +41,7 @@
 		<a class="button" href="#intro"><span>イータ</span><span>葡萄酒屋</span></a>
 	</div>
 </div>
-<div class="row clearfix">
+<div class="row">
 	<div class="col-md-12 column" style="" id="intro">
 		<h1 class="text-center">
 			店舗紹介
