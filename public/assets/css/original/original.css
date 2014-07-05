@@ -16,6 +16,7 @@ html, body,#container{
 	background:url('../../img/etaLogo.gif') no-repeat fixed center center;
 	margin-right:0;
 	margin-left:0;
+	clear:both;
 }
 #message-box{
 	position: absolute;
