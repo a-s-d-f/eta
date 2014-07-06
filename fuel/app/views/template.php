@@ -30,7 +30,9 @@ lang="en">
 </head>
 <body data-spy="scroll">
 	<div class="container-fluid" id="container">
-		<?php echo $content;?>
+		<div class="col-xs-12" style="height:100%;">
+			<?php echo $content;?>
+		</div>
 	</div>
 </body>
 </html>
