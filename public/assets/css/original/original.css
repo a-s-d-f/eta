@@ -14,19 +14,6 @@ html, body,#container{
 	-ms-background:url('../../img/etaLogo.gif') no-repeat fixed center center;
 	background:url('../../img/etaLogo.gif') no-repeat fixed center center;
 }
-@media(max-width:767px){
-	#header{
-		-webkit-background:url('../../img/etaLogo.gif') no-repeat left top;
-		-moz-background:url('../../img/etaLogo.gif') no-repeat left top;
-		-ms-background:url('../../img/etaLogo.gif') no-repeat left top;
-		background:url('../../img/etaLogo.gif') no-repeat left top;
-		-webkit-background-size:100% 100%;
-		-moz-background-size:100% 100%;
-		-ms-background-size:100% 100%;
-		background-size:100% 100%;
-	}
-}
-
 #message-box{
 	position: absolute;
 	bottom: 0;
@@ -35,14 +22,33 @@ html, body,#container{
 	left:50%;
 	margin-left:-150px;
 }
+@media(max-width:767px){
+	#header{
+		-webkit-background:url('../../img/etaLogo.gif') no-repeat center center;
+		-moz-background:url('../../img/etaLogo.gif') no-repeat center center;
+		-ms-background:url('../../img/etaLogo.gif') no-repeat center center;
+		background:url('../../img/etaLogo.gif') no-repeat center center;
+		-webkit-background-size:200% 100%;
+		-moz-background-size:200% 100%;
+		-ms-background-size:200% 100%;
+		background-size:200% 100%;
+	}
+}
+@media(max-width:480px){
+	#message-box{
+		position: absolute;
+		bottom: 0;
+		text-align:center;
+		font-size:1.3em;
+		left:50%;
+		margin-left:-75px;
+	}
+}
 
 .dropdown-menu{
 	font-size:20px;
 }
-/*.effect1{
-	-webkit-transform: translateY(51px);
-	transform: translateY(51px);
-}*/
+
 
 .effect-none{
 	display:none;
@@ -190,6 +196,87 @@ html, body,#container{
 	-moz-transform: rotateX(-90deg);
 	transform: rotateX(-90deg);
 }
+
+@media(max-width:480px){
+	.button {
+		display: inline-block;
+		width: 150px;
+		height: 42px;
+		text-align: center;
+		text-decoration: none;
+		line-height: 42px;
+		outline: none;
+	}
+	.button::before,
+	.button::after {
+		position: absolute;
+		z-index: -1;
+		display: block;
+		content: '';
+	}
+	.button,
+	.button::before,
+	.button::after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-transition: all .3s;
+		transition: all .3s;
+	}
+
+	.button {
+		position: relative;
+		-webkit-perspective: 150px;
+		perspective: 150px;
+	}
+	.button span {
+		display: block;
+		position: absolute;
+		width: 150px;
+		height: 45px;
+		border: 2px solid #03132b;
+		text-align: center;
+		line-height: 45px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-transition: all .6s;
+		transition: all .6s;
+		pointer-events: none;
+	}
+	.button span:nth-child(1) {
+		background-color: #03132b;
+		color: #fff;
+		-webkit-transform: rotateX(90deg);
+		-moz-transform: rotateX(90deg);
+		transform: rotateX(90deg);
+		-webkit-transform-origin: 50% 50% -22px;
+		-moz-transform-origin: 50% 50% -22px;
+		transform-origin: 50% 50% -22px;
+	}
+	.button span:nth-child(2) {
+		background-color: #fff;
+		color: #333;
+		-webkit-transform: rotateX(0deg);
+		-moz-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+		-webkit-transform-origin: 50% 50% -22px;
+		-moz-transform-origin: 50% 50% -22px;
+		transform-origin: 50% 50% -22px;
+	}
+	.button:hover span:nth-child(1) {
+		-webkit-transform: rotateX(0deg);
+		-moz-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+	}
+	.button:hover span:nth-child(2) {
+		background-color: #333;
+		-webkit-transform: rotateX(-90deg);
+		-moz-transform: rotateX(-90deg);
+		transform: rotateX(-90deg);
+	}
+}
+
 .hidden{
 	display:none;
 }
