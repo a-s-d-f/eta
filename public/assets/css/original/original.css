@@ -13,17 +13,13 @@ html, body,#container{
 	-moz-background:url('../../img/etaLogo.gif') no-repeat fixed center center;
 	-ms-background:url('../../img/etaLogo.gif') no-repeat fixed center center;
 	background:url('../../img/etaLogo.gif') no-repeat fixed center center;
-	-webkit-background-size:auto 100%;
-	-moz-background-size:auto 100%;
-	-ms-background-size:auto 100%;
-	background-size:auto 100%;
 }
 @media(max-width:767px){
 	#header{
-		-webkit-background-size:200% 100%;
-		-moz-background-size:200% 100%;
-		-ms-background-size:200% 100%;
-		background-size:200% 100%;
+		-webkit-background-size:100% 100%;
+		-moz-background-size:100% 100%;
+		-ms-background-size:100% 100%;
+		background-size:100% 100%;
 	}
 }
 
