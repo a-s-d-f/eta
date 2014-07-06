@@ -18,6 +18,15 @@ html, body,#container{
 	-ms-background-size:auto 100%;
 	background-size:auto 100%;
 }
+@media(max-width:767px){
+	#header{
+		-webkit-background-size:200% 100%;
+		-moz-background-size:200% 100%;
+		-ms-background-size:200% 100%;
+		background-size:200% 100%;
+	}
+}
+
 #message-box{
 	position: absolute;
 	bottom: 0;
