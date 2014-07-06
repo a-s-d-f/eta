@@ -16,6 +16,10 @@ html, body,#container{
 }
 @media(max-width:767px){
 	#header{
+		-webkit-background:url('../../img/etaLogo.gif') no-repeat fixed left top;
+		-moz-background:url('../../img/etaLogo.gif') no-repeat fixed left top;
+		-ms-background:url('../../img/etaLogo.gif') no-repeat fixed left top;
+		background:url('../../img/etaLogo.gif') no-repeat fixed left top;
 		-webkit-background-size:100% 100%;
 		-moz-background-size:100% 100%;
 		-ms-background-size:100% 100%;
