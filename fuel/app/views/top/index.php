@@ -144,9 +144,9 @@
 		<div class="margin-top2" id="photo">
 			<?php foreach($seat as $val):?>
 				<div class="col-md-6 column margin-2">
-					<a href=<?php echo Uri::base().'assets/img/'.$val["imgurl"];?> rel="lightbox-cats" title=<?php echo $val["name"];?>>
-						<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
-					</a>
+					 <a href=<?php echo Uri::base()."assets/img/".$val["imgurl"];?> data-lightbox="seat" data-title=<?php echo $val["name"];?>>
+                        <?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
+                    </a>
 				</div>
 			<?php endforeach;?>
 		</div>

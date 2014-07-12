@@ -11,12 +11,14 @@ lang="en">
 	<?php echo Asset::css("bootstrap/bootstrap.css");?>
 	<?php echo Asset::css("original/bootstrap-custom.css");?>
 	<?php echo Asset::css("original/original.css");?>
-	<?php echo Asset::css("slimbox/slimbox2-rtl.css");?>
+
+	<!-- lightBox -->
+    <?php echo Asset::css('lightbox/lightbox.css');?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<?php echo Asset::js("bootstrap/bootstrap.js");?>
 	<?php echo Asset::js("original/original.js");?>
-	<?php echo Asset::js("slimbox/slimbox2.js")?>
+	<?php echo Asset::js('lightbox/lightbox.min.js');?>
 	<?php echo Asset::js("js-plugin/isotope/jquery.isotope.min.js");?>
 	<?php echo Asset::js("original/admin.js"); ?>
 	<script type="text/javascript">
