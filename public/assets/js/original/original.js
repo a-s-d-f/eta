@@ -81,11 +81,11 @@ window.classie = classie;
 			var target = $(href == "#" || href == "" ? 'html' : href);
 			if(agent.search(/iPhone/) != -1 || agent.search(/iPad/) != -1 || agent.search(/Android/) != -1){
 				setTimeout(function(){
-					var speed = 500;
+					var speed = 1000;
 					var position = target.offset().top;
 					$("html, body").animate({scrollTop:position}, speed, "swing");
 					return false;
-				},500);
+				},1000);
 			}else{
 				var speed = 1000;
 				var position = target.offset().top;
