@@ -85,7 +85,7 @@ window.classie = classie;
 					var position = target.offset().top;
 					$("html, body").animate({scrollTop:position}, speed, "swing");
 					return false;
-				},1000);
+				},600);
 			}else{
 				var speed = 1000;
 				var position = target.offset().top;
