@@ -158,3 +158,5 @@ ERROR - 2014-07-12 21:45:35 --> Error - File "APPPATH/classes/view/top/404.php" 
 ERROR - 2014-07-12 21:45:43 --> Error - File "APPPATH/classes/view/top/404.php" does not contain class "View_Top_404" in /Users/dvlpyeti/Public/Develop/FuelProjects/eta/fuel/core/classes/autoloader.php on line 395
 ERROR - 2014-07-12 21:45:44 --> Error - File "APPPATH/classes/view/top/404.php" does not contain class "View_Top_404" in /Users/dvlpyeti/Public/Develop/FuelProjects/eta/fuel/core/classes/autoloader.php on line 395
 ERROR - 2014-07-12 21:45:45 --> Error - File "APPPATH/classes/view/top/404.php" does not contain class "View_Top_404" in /Users/dvlpyeti/Public/Develop/FuelProjects/eta/fuel/core/classes/autoloader.php on line 395
+ERROR - 2014-07-12 21:47:57 --> Error - File "APPPATH/classes/view/top/404.php" does not contain class "View_Top_404" in /Users/dvlpyeti/Public/Develop/FuelProjects/eta/fuel/core/classes/autoloader.php on line 395
+ERROR - 2014-07-12 21:48:03 --> Error - File "APPPATH/classes/view/top/404.php" does not contain class "View_Top_404" in /Users/dvlpyeti/Public/Develop/FuelProjects/eta/fuel/core/classes/autoloader.php on line 395
