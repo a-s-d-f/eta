@@ -56,7 +56,7 @@
 				<?php endforeach;?>
 			</dl>
 			<div class="form-group text-right">
-				<a href="editintro.html" class="btn btn-lg btn-primary">編集</a>
+				<a href="editintro" class="btn btn-lg btn-primary">編集</a>
 			</div>
 		</div>
 		<div class="row">

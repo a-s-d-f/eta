@@ -18,6 +18,7 @@ lang="en">
 	<?php echo Asset::js("original/original.js");?>
 	<?php echo Asset::js("slimbox/slimbox2.js")?>
 	<?php echo Asset::js("js-plugin/isotope/jquery.isotope.min.js");?>
+	<?php echo Asset::js("original/admin.js"); ?>
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('a[rel*=lightbox-cats]').slimbox({

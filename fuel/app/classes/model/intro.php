@@ -19,4 +19,10 @@ class Model_Intro extends \Orm\Model
 
 		return $result;
 	}
+
+	public static function rm($id){
+		$result = DB::delete("intros")
+					->where("id","=",$id)
+					->execute();
+	}
 }

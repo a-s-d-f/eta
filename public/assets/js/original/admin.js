@@ -8,14 +8,26 @@ $(function(){
 			});
 		});
 		$('#addbig').click(function(){
-			var content = "<tr><td><input class='input-lg form-control' type='text' value=''></td><td><textarea class='form-control'rows='10' placeholder='内容を改行するにはカンマ( , )を入れてください'></textarea></td><td><input type='button' class='btn btn-lg btn-primary delete' value='削除'></td></tr>";
+			var content = "<tr><td><input class='input-lg form-control' type='text' value=''></td><td><textarea class='form-control'rows='2' placeholder='内容を改行するにはカンマ( , )を入れてください'></textarea></td><td><input type='button' class='btn btn-lg btn-primary delete' value='削除'></td></tr>";
 			$('#target').append(content);
 			$('.delete').click(function(){
 				$(this).parent().parent().remove();
 			});
 		});
 		$('.delete').click(function(){
+			var id= $(this).attr("data-filter");
+			$.ajax({
+				type: "POST",
+				url: "/ajax/delete",
+				dataType:"json",
+				data: {"id": id},
+				success: function(){
+					alert("削除しました");
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+				}
+			});
 			$(this).parent().parent().remove();
 		});
-	});
+});
 });

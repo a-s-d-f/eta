@@ -23,7 +23,6 @@ class Controller_Admin extends Controller_Template
 {
 
 	/**
-	 * The basic welcome message
 	 *
 	 * @access  public
 	 * @return  Response
@@ -38,4 +37,17 @@ class Controller_Admin extends Controller_Template
 		$this->template->content->wine = Model_Wine::getAll();
 		$this->template->content->seat = Model_Seat::getAll();
 	}
+
+	/**
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_editintro()
+	{
+		$this->template->content = View::forge('admin/editintro');
+		$this->template->content->intro = Model_Intro::getAll();
+	}
+
+
 }

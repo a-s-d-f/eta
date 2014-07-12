@@ -113,15 +113,14 @@ window.classie = classie;
 		$(window).scroll(function () {
 			var s = $(this).scrollTop();
 			var m = document.getElementById("header").clientHeight;
-			if(s > 1){
+			if(s > 1 && 50 > s){
 				$('#message-box').fadeOut('fast');
 			}else if(s <= 1){
 				$('#message-box').fadeIn('fast');
-			}
-			if(s > m-70) {
-				$('#navbar').show('slow');
-			} else if(s <= 0) {
 				$('#navbar').hide('slow');
+			}
+			if(s > m-70 && m > s) {
+				$('#navbar').show('slow');
 			}
 		});
 	});

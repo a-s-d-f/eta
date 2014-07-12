@@ -22,7 +22,7 @@ html, body,#container{
 	left:50%;
 	margin-left:-150px;
 }
-@media(max-width:767px){
+@media(max-width:768px){
 	#header{
 		-webkit-background:url('../../img/etaLogo.gif') no-repeat center center;
 		-moz-background:url('../../img/etaLogo.gif') no-repeat center center;
