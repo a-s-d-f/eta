@@ -145,7 +145,7 @@
 		</h1>
 		<div class="margin-top2" id="photo">
 			<?php foreach($seat as $val):?>
-				<div class="col-xs-6 column margin-2">
+				<div class="col-sm-6 column margin-2">
 					 <a rel="lightbox" href=<?php echo Uri::base()."assets/img/".$val["imgurl"];?> data-lightbox="seat" data-title=<?php echo $val["name"];?>>
                         <?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
                     </a>
