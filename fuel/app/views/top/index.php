@@ -112,17 +112,19 @@
 		</h1>
 		<div id="wine-filter" class=" margin-top1">
 			<a class="btn btn-lg btn-default" type="button" data-filter="*">全て</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".hitomi"> ひとみ</a>
+			<a class="btn btn-lg btn-default" type="button" data-filter=".hitomi"> ヒトミ</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".red"> 赤</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".white"> 白</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".spark"> 泡</a>
 		</div>
 		<div class="col-md-offset-1 row clearfix margin-top2 text-left isotopeWine">
 			<?php foreach($wine as $val):?>
-				<div <?php echo "class='col-sm-12 col-sm-6 col-lg-4 item ".$val["type"]."'";?>>
-					<div class="col-xs-5" style="margin-bottom:20px;">
-						<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
-					</div>
+				<div <?php echo "class='col-sm-12 col-sm-6 col-lg-4 wineitem item ".$val["type"]."'";?>>
+					<div class="col-xs-5">
+						<a href=<?php echo Uri::base()."assets/img/wine/".$val["imgurl"];?> data-lightbox="wine" data-title=<?php echo $val["comment"];?>>
+	                        <?php echo Asset::img("wine/".$val["imgurl"],array('class'=>'img-responsive'));?>
+	                    </a>
+                    </div>
 					<div class="col-xs-7">
 						<dl class="winelist">
 							<dt>葡萄酒名</dt>
