@@ -113,7 +113,7 @@ window.classie = classie;
 		$(window).scroll(function () {
 			var s = $(this).scrollTop();
 			var m = document.getElementById("header").clientHeight;
-			if(s > 1 && 50 > s){
+			if(s > 1 && 30 > s){
 				$('#message-box').fadeOut('fast');
 			}else if(s <= 1){
 				$('#message-box').fadeIn('fast');
