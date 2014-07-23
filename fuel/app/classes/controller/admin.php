@@ -134,13 +134,13 @@ class Controller_Admin extends Controller_Template
 			$config = array(
 				'path' => DOCROOT.'assets/img/',
 				'auto_rename' => true,
-				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
+				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png','bmp'),
 				);
 			Upload::process($config);
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Menu::add(Input::post("name",null),Input::post("category",null),Input::post("comment",null),$file["name"]);
+					Model_Menu::add(Input::post("name",null),Input::post("category",null),Input::post("comment",null),$file["saved_as"]);
 				}
 				return Response::redirect("/admin/");
 			}else{
@@ -179,7 +179,7 @@ class Controller_Admin extends Controller_Template
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Wine::add(Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("comment",null),$file["name"]);
+					Model_Wine::add(Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("comment",null),$file["saved_as"]);
 				}
 				return Response::redirect("/admin/");
 			}else{
@@ -218,7 +218,7 @@ class Controller_Admin extends Controller_Template
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Seat::add(Input::post("name",null),$file["name"]);
+					Model_Seat::add(Input::post("name",null),$file["saved_as"]);
 				}
 				return Response::redirect("/admin/");
 			}else{
@@ -252,7 +252,7 @@ class Controller_Admin extends Controller_Template
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Menu::up(Input::post("id",null),Input::post("name",null),Input::post("category",null),Input::post("comment",null),$file["name"]);
+					Model_Menu::up(Input::post("id",null),Input::post("name",null),Input::post("category",null),Input::post("comment",null),$file["saved_as"]);
 				}
 				return Response::redirect("/admin/");
 			}else{
@@ -270,7 +270,7 @@ class Controller_Admin extends Controller_Template
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Wine::up(Input::post("id",null),Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("comment",null),$file["name"]);
+					Model_Wine::up(Input::post("id",null),Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("comment",null),$file["saved_as"]);
 				}
 				return Response::redirect("admin/");
 			}else{
@@ -288,7 +288,7 @@ class Controller_Admin extends Controller_Template
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Seat::up(Input::post("id",null),Input::post("name",null),$file["name"]);
+					Model_Seat::up(Input::post("id",null),Input::post("name",null),$file["saved_as"]);
 				}
 				return Response::redirect("/admin/");
 			}else{
