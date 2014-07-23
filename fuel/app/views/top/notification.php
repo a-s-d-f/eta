@@ -50,12 +50,16 @@ lang="en">
 				<h3>
 					ソーシャル
 				</h3>
-				<a href="https://www.facebook.com/winebar.eta" target="_blank">
-					<?php echo Asset::img("facebook.png",array("class"=>"social-icon"));?>
-				</a>
-				<a href=<?php echo Uri::base().'assets/img/qr.gif';?> rel="lightbox" title="line_QRcode">
-					<?php echo Asset::img("line.png",array("class"=>"social-icon"));?>
-				</a>
+				<div class="col-xs-6 col-sm-4 col-md-6">
+					<a href="https://www.facebook.com/winebar.eta" target="_blank">
+						<?php echo Asset::img("facebook.png",array("class"=>"social-icon"));?>
+					</a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-6">
+					<a href=<?php echo Uri::base().'assets/img/qr.gif';?> rel="lightbox" title="line_QRcode">
+						<?php echo Asset::img("line.png",array("class"=>"social-icon"));?>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

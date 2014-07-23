@@ -27,7 +27,21 @@ class Controller_Ajax extends Controller_Rest{
 	 * @return  No return
 	 */
 	public function post_delete(){
-		Model_Intro::rm(Input::post("id",null));
+		$type = Input::post("type",null);
+		switch($type){
+			case "intro":
+			Model_Intro::rm(Input::post("id",null));break;
+			case "notification":
+			Model_Notification::rm(Input::post("id",null));break;
+			case "recruit":
+			Model_Recruit::rm(Input::post("id",null));break;
+			case "menu":
+			Model_Menu::rm(Input::post("id",null));break;
+			case "wine":
+			Model_Wine::rm(Input::post("id",null));break;
+			case "seat":
+			Model_Seat::rm(Input::post("id",null));break;
+		}
 		exit;
 	}
 }
