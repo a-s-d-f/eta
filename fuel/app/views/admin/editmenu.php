@@ -47,8 +47,8 @@
 							<tr>
 								<th>種類</th>
 								<td><select name="category" class="form-control">
-									<option <?php if($val["type"]=="food")echo"selected='selected'"?> value="food">food</option>
-									<option <?php if($val["type"]=="snack")echo"selected='selected'"?> value="snack">snack</option>
+									<option <?php if($val["type"]=="food")echo"selected='selected'"?> value="food">主菜</option>
+									<option <?php if($val["type"]=="sub")echo"selected='selected'"?> value="sub">副菜</option>
 								</select></td>
 							</tr>
 							<tr>

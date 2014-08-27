@@ -15,7 +15,7 @@
 								<a href="" class="dropdown-toggle" data-toggle="dropdown">管理者<strong class="caret"></strong></a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="">ログアウト</a>
+										<a href="logout">ログアウト</a>
 									</li>
 								</ul>
 							</li>

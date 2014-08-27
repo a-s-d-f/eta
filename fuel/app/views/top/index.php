@@ -90,7 +90,7 @@
 		<div id="menu-filter" class="margin-top1">
 			<a class="btn btn-lg btn-default" type="button" data-filter="*"> 全て</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".food"> 主菜</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".snack"> つまみ</a>
+			<a class="btn btn-lg btn-default" type="button" data-filter=".sub"> 副菜</a>
 		</div>
 		<div class="margin-top2 text-left isotopeMenu">
 			<?php foreach($menu as $val):?>
@@ -198,7 +198,7 @@
 			</a>
 		</div>
 		<div class="col-xs-6 col-sm-4 col-md-6">
-			<a href=<?php echo Uri::base().'assets/img/qr.gif';?> rel="lightbox" title="line_QRcode">
+			<a href=<?php echo 'http://qr-official.line.me/sid/L/wineeta.png';?> rel="lightbox" title="line_QRcode">
 				<?php echo Asset::img("line.png",array("class"=>"social-icon"));?>
 			</a>
 		</div>

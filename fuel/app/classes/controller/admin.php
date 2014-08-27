@@ -23,13 +23,16 @@ class Controller_Admin extends Controller_Template
 {
 	public function before() {
 		parent::before();
-        // 初期処理
+		// 初期処理
 		$method = Uri::segment(2);
-
 		// ログイン済みチェック
 		$nologin_methods = array(
 			'login',
 			);
+		// ログインチェック
+		if (!in_array($method, $nologin_methods)&&!Auth::check()) {
+			Response::redirect('admin/login');
+		}
 		if (in_array($method, $nologin_methods) && Auth::check()) {
 			Response::redirect('admin/index');
 		}
@@ -77,6 +80,31 @@ class Controller_Admin extends Controller_Template
 		$this->template->title = 'ろぐいん';
 		$this->template->content = View::forge('admin/login');
 		$this->template->content->set_safe('errmsg', $result_validate);
+	}
+	private function validate_login(){
+		// 入力チェック
+		$validation = Validation::forge();
+		$validation->add('username', 'ユーザー名')
+		->add_rule('required')
+		->add_rule('min_length', 4)
+		->add_rule('max_length', 15);
+		$validation->add('password', 'パスワード')
+		->add_rule('required')
+		->add_rule('min_length', 6)
+		->add_rule('max_length', 20);
+		$validation->run();
+		return $validation;
+	}
+
+		/**
+	 *
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_logout() {
+        // ログアウト処理
+		Auth::logout();
+		Response::redirect('/');
 	}
 
 	/**

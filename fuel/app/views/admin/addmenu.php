@@ -43,8 +43,8 @@
 						<th>種類</th>
 						<td><select name="category" class="form-control">
 							<option value="" selected="slected">種類を選んでください</option>
-							<option value="food">food</option>
-							<option value="snack">snack</option>
+							<option value="food">主菜</option>
+							<option value="sub">副菜</option>
 						</select></td>
 					</tr>
 					<tr>
