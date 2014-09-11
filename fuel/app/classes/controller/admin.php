@@ -21,6 +21,8 @@
  */
 class Controller_Admin extends Controller_Template
 {
+	public $template = 'template_admin';
+
 	public function before() {
 		parent::before();
 		// 初期処理

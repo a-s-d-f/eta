@@ -12,28 +12,22 @@
 					<a href="#notification">お知らせ</a>
 				</li>
 				<li>
-					<a href="#menulist">お品書き</a>
-				</li>
-				<li>
-					<a href="#winelist">葡萄酒</a>
-				</li>
-				<li>
 					<a href="#seat">店内画像</a>
 				</li>
 				<li>
 					<a href="#recruit">採用情報</a>
 				</li>
-				<!-- <li class="dropdown">
-					<a href="" class="dropdown-toggle" data-toggle="dropdown">リンク<strong class="caret"></strong></a>
+				<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown">お品書き<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="https://www.facebook.com/winebar.eta">Facebook</a>
+							<a href="/menu">料理</a>
 						</li>
 						<li>
-							<a href="http://www.nigoriwine.jp/">ひとみワイナリー</a>
+							<a href="/wine">葡萄酒</a>
 						</li>
 					</ul>
-				</li> -->
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -80,62 +74,6 @@
 				</a>
 			<?php endforeach;?>
 		</dl>
-	</div>
-</div>
-<div class="row clearfix">
-	<div class="col-md-12 column text-center" id="menulist">
-		<h1 class="text-center">
-			お品書き
-		</h1>
-		<div id="menu-filter" class="margin-top1">
-			<a class="btn btn-lg btn-default" type="button" data-filter="*"> 全て</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".food"> 主菜</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".sub"> 副菜</a>
-		</div>
-		<div class="margin-top2 text-left isotopeMenu">
-			<?php foreach($menu as $val):?>
-				<div <?php echo "class='col-sm-6 col-lg-4 item ".$val["type"]."'";?>>
-				<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
-				<blockquote>
-					<p><?php echo $val["comment"];?></p>
-					<small><?php echo $val["name"];?></small>
-				</blockquote>
-				</div>
-			<?php endforeach;?>
-		</div>
-	</div>
-</div>
-<div class="row clearfix">
-	<div class="col-md-12 column text-center" id="winelist">
-		<h1 class="text-center">
-			葡萄酒
-		</h1>
-		<div id="wine-filter" class=" margin-top1">
-			<a class="btn btn-lg btn-default" type="button" data-filter="*">全て</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".hitomi"> ヒトミ</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".red"> 赤</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".white"> 白</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".spark"> 泡</a>
-		</div>
-		<div class="col-md-offset-1 row clearfix margin-top2 text-left isotopeWine">
-			<?php foreach($wine as $val):?>
-				<div <?php echo "class='col-sm-12 col-sm-6 col-lg-4 wineitem item ".$val["type"]."'";?>>
-					<div class="col-xs-5">
-						<a rel="lightbox" href=<?php echo Uri::base()."assets/img/wine/".$val["imgurl"];?> data-lightbox="wine" data-title=<?php echo $val["comment"];?>>
-	                        <?php echo Asset::img("wine/".$val["imgurl"],array('class'=>'img-responsive'));?>
-	                    </a>
-                    </div>
-					<div class="col-xs-7">
-						<dl class="winelist">
-							<dt>葡萄酒名</dt>
-							<dd>- <?php echo $val["name"];?></dd>
-							<dt>値段</dt>
-							<dd>- <?php echo $val["money"];?></dd>
-						</dl>
-					</div>
-				</div>
-			<?php endforeach;?>
-		</div>
 	</div>
 </div>
 <div class="row clearfix">
@@ -192,15 +130,34 @@
 		<h3>
 			ソーシャル
 		</h3>
-		<div class="col-xs-6 col-sm-4 col-md-6">
+		<div class="col-xs-3">
 			<a href="https://www.facebook.com/winebar.eta" target="_blank">
 				<?php echo Asset::img("facebook.png",array("class"=>"social-icon"));?>
 			</a>
 		</div>
-		<div class="col-xs-6 col-sm-4 col-md-6">
-			<a href=<?php echo 'http://qr-official.line.me/sid/L/wineeta.png';?> rel="lightbox" title="line_QRcode">
+		<div class="col-xs-3">
+			<a href=<?php echo 'http://qr-official.line.me/sid/L/wineeta.png';?> rel="lightbox" title="line_QRcode" style="max-height:50px;">
 				<?php echo Asset::img("line.png",array("class"=>"social-icon"));?>
 			</a>
 		</div>
 	</div>
 </div>
+<script>
+	$(function() {
+		$(window).scroll(function () {
+			var s = $(this).scrollTop();
+			var m = document.getElementById("header").clientHeight;
+			var nav = document.getElementById('navbar');
+			if(s <= 0){
+				$('#message-box').fadeIn('fast');
+				classie.remove(nav,'navbar-effect');
+			}
+			if(s > 1){
+				$('#message-box').fadeOut('fast');
+			}
+			if(s >= m-50) {
+				classie.add(nav,'navbar-effect');
+			}
+		});
+	});
+</script>

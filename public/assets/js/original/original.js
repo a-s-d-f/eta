@@ -108,25 +108,10 @@ window.classie = classie;
 			return false;
 		});
 	});
-
-	$(function() {
-		$(window).scroll(function () {
-			var s = $(this).scrollTop();
-			var m = document.getElementById("header").clientHeight;
-			if(s > 1 && 30 > s){
-				$('#message-box').fadeOut('fast');
-			}else if(s <= 1){
-				$('#message-box').fadeIn('fast');
-				$('#navbar').hide('slow');
-			}
-			if(s > m-70 && m > s) {
-				$('#navbar').show('slow');
-			}
-		});
-	});
 	$(function(){
 		$(window).load(function() {
-			$('#navbar').hide();
+			// $('#navbar').hide();
+			// $('#navbar').show('slow');
 			var $menuContainer = $('.isotopeMenu');
 			var $wineContainer = $('.isotopeWine');
 

@@ -30,3 +30,61 @@ $(function(){
 		});
 	});
 });
+$(window).load(function(){
+	var graph_data = [];
+	var area_data = [];
+	$.ajax({
+    type: "POST",
+    url: "/ajax/getarea",
+    dataType:"json",
+    data: {"dataFilter": "d"},
+    success: function(data, dataType){
+      $("#hero-area").children("").remove();
+      area_data = [];
+      for(var i=0;i<data.length;i++){
+        area_data.push({"period":data[i].date, "pc":(data[i].pc_count==null)?0:data[i].pc_count, "ios":(data[i].ios_count==null)?0:data[i].ios_count, "android":(data[i].android_count==null)?0:data[i].android_count});
+      }
+        // Morris Area Chart
+        Morris.Area({
+          element: 'hero-area',
+          data: area_data,
+          xkey: 'period',
+          ykeys: ['pc', 'ios', 'android'],
+          labels: ['PC', 'iOS', 'Android'],
+          lineWidth: 2,
+          hideHover: 'auto',
+          lineColors: ["#81d5d9", "#a6e182", "#67bdf8"]
+        });
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+      }
+    });
+	$("#sb > span").click(function(){
+    $.ajax({
+      type: "POST",
+      url: "/ajax/getarea",
+      dataType:"json",
+      data: {"dataFilter": $(this).attr("data-filter")},
+      success: function(data, dataType){
+        $("#hero-area").children("").remove();
+        area_data = [];
+        for(var i=0;i<data.length;i++){
+          area_data.push({"period":data[i].date, "pc":(data[i].pc_count==null)?0:data[i].pc_count, "ios":(data[i].ios_count==null)?0:data[i].ios_count, "android":(data[i].android_count==null)?0:data[i].android_count});
+        }
+        // Morris Area Chart
+        Morris.Area({
+          element: 'hero-area',
+          data: area_data,
+          xkey: 'period',
+          ykeys: ['pc', 'ios', 'android'],
+          labels: ['PC', 'iOS', 'Android'],
+          lineWidth: 2,
+          hideHover: 'auto',
+          lineColors: ["#81d5d9", "#a6e182", "#67bdf8"]
+        });
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+      }
+    });
+  });
+});

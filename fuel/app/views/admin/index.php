@@ -35,6 +35,24 @@
 		</div>
 	</div>
 	<div class="col-md-9" id="edit-content">
+	    <div class="row">
+	      <div class="block">
+	        <div class="navbar navbar-inner block-header">
+	          <div class="muted pull-left"><small>デバイス別アクセス</small></div>
+	          <div class="pull-right" id="sb">
+	            <span class="badge badge-warning" style="cursor:pointer" data-filter="d">日</span>
+	            <span class="badge badge-warning" style="cursor:pointer" data-filter="w">週</span>
+	            <span class="badge badge-warning" style="cursor:pointer" data-filter="m">月</span>
+	            <span class="badge badge-warning" style="cursor:pointer" data-filter="y">年</span>
+	          </div>
+	        </div>
+	        <div class="block-content collapse in">
+	          <div class="span12">
+	            <div id="hero-area" style="height: 250px;"></div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 		<div class="row">
 			<h2 class="text-center">店舗紹介</h2>
 			<table class="table">

@@ -44,4 +44,17 @@ class Controller_Ajax extends Controller_Rest{
 		}
 		exit;
 	}
+
+	/**
+	 *
+	 * @access  public
+	 * @return  JSON
+	 */
+	public function post_getarea(){
+
+		//JSON形式で出力する
+		header('Content-Type: application/json');
+		echo json_encode(Model_Counter::countArea(Input::post("dataFilter",null)));
+		exit;
+	}
 }

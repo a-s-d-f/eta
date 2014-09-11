@@ -34,9 +34,20 @@ class Controller_Top extends Controller_Template
 		$this->template->content->intro = Model_Intro::getAll();
 		$this->template->content->notification = Model_Notification::getAll();
 		$this->template->content->recruit = Model_Recruit::getAll();
-		$this->template->content->menu = Model_Menu::getAll();
-		$this->template->content->wine = Model_Wine::getAll();
 		$this->template->content->seat = Model_Seat::getAll();
+		Model_Counter::insertAddress();
+	}
+
+	public function action_menu(){
+		$this->template->content = View::forge('top/menu');
+		$this->template->content->menu = Model_Menu::getAll();
+		Model_Counter::insertAddress();
+	}
+
+	public function action_wine(){
+		$this->template->content = View::forge('top/wine');
+		$this->template->content->wine = Model_Wine::getAll();
+		Model_Counter::insertAddress();
 	}
 
 	/**
