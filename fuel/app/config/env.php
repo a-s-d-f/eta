@@ -12,8 +12,19 @@ return array(
   'DB' => array(
     'TYPE'      => 'mysqli',
     'HOST'      => 'localhost',
-    'DB_NAME'   => 'eta_db',
-    'USER_NAME' => 'root',
+    'NAME'      => 'eta_db',
+    'USERNAME'  => 'root',
     'PASSWORD'  => 'nono0811',
   ),
+  /**
+  * プロジェクト環境タイプ
+  *
+  * Fuel::DEVELOPMENT   // 開発環境
+  * Fuel::TEST          // テスト環境
+  * Fuel::STAGING       // ステージング環境
+  * Fuel::PRODUCTION    // 製品環境
+  */
+  'FUEL' => array(
+    'ENV' => Fuel::PRODUCTION,
+  )
 );
