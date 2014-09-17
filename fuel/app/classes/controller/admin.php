@@ -1,89 +1,98 @@
 <?php
 /**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
- *
- * @package    Fuel
- * @version    1.7
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
- * @link       http://fuelphp.com
+ * @brif    管理者ページ関連のControllerファイル
+ * @author  Sakamoto
+ * @date    2014/09/13
  */
 
 /**
- * The Welcome Controller.
- *
- * A basic controller example.  Has examples of how to set the
- * response body and status.
- *
- * @package  app
- * @extends  Controller
+ * @brif    管理者ページ用
+ * @package app
+ * @extends Controller_Template
  */
 class Controller_Admin extends Controller_Template
 {
+  // テンプレートファイルを設定
 	public $template = 'template_admin';
 
+  /**
+  * @brif   前処理
+  * @access public
+  * @return
+  */
 	public function before() {
-		parent::before();
-		// 初期処理
+		// 決まり文句
+    parent::before();
+
+		// リクエストアクションを取得
 		$method = Uri::segment(2);
-		// ログイン済みチェック
-		$nologin_methods = array(
-			'login',
-			);
-		// ログインチェック
-		if (!in_array($method, $nologin_methods)&&!Auth::check()) {
-			Response::redirect('admin/login');
-		}
-		if (in_array($method, $nologin_methods) && Auth::check()) {
-			Response::redirect('admin/index');
+
+    // ログインチェック
+		if (!Auth::check()) {
+			Response::forge('admin/login');
 		}
 	}
+
 	/**
-	 *
+	 * @brif    管理者トップを表示
 	 * @access  public
 	 * @return  Response
 	 */
 	public function action_index(){
-		$this->template->content = View::forge('admin/index');
-		$this->template->content->intro = Model_Intro::getAll();
-		$this->template->content->notification = Model_Notification::getAll();
-		$this->template->content->recruit = Model_Recruit::getAll();
-		$this->template->content->menu = Model_Menu::getAll();
-		$this->template->content->wine = Model_Wine::getAll();
-		$this->template->content->seat = Model_Seat::getAll();
+    $this->template->content = View::forge('admin/index');
+
+    // パラメータセット
+    $datas = array(
+      'intro'        => Model_Intro::find('all'),
+      'notification' => Model_Notification::find('all'),
+      'recruit'      => Model_Recruit::find('all'),
+      'menu'         => Model_Menu::find('all'),
+      'wine'         => Model_Wine::find('all'),
+      'seat'         => Model_Seat::find('all'),
+    );
+    $this->template->content->datas = $datas;
 	}
 
 	/**
-	 *
+	 * @brif    ログイン処理
 	 * @access  public
 	 * @return  Response
 	 */
 	public function action_login(){
-		// ログイン処理
-		$username = Input::post('username', null);
-		$password = Input::post('password', null);
-		$result_validate = '';
-		if ($username !== null && $password !== null) {
-			$validation = $this->validate_login();
-			$errors = $validation->error();
-			if (empty($errors)) {
-			// ログイン認証を行う
-				$auth = Auth::instance();
-				if ($auth->login($username, $password)) {
-				// ログイン成功
-					Response::redirect('admin/index');
-				}
-				$result_validate = "ログインに失敗しました。";
-			} else {
-				$result_validate = $validation->show_errors();
-			}
-		}
 		$this->template->title = 'ろぐいん';
 		$this->template->content = View::forge('admin/login');
-		$this->template->content->set_safe('errmsg', $result_validate);
+		
+    if (Security::check_token()) {
+    // エスケープ
+  		$username = mysqli_real_escape_string(Input::post('username', null));
+  		$password = mysqli_real_escape_string(Input::post('password', null));
+
+      $result_validate = '';
+      if ($username !== null && $password !== null) {
+  			$validation = Model_User::validateLogin();
+  			$errors = $validation->error();
+  			if (empty($errors)) {
+  			// ログイン認証を行う
+  				$auth = Auth::instance();
+  				if ($auth->login($username, $password)) {
+  				// ログイン成功
+  					Response::redirect('admin/index');
+  				}
+  				$result_validate = "ログインに失敗しました。";
+  			} else {
+  				$result_validate = $validation->show_errors();
+  		  }
+		  }
+		  $this->template->content->set_safe('errmsg', $result_validate);
+    }
 	}
-	private function validate_login(){
+
+	/**
+	 * @brif    ログインバリデート
+	 * @access  private
+	 * @return  
+	 */
+  private function validate_login(){
 		// 入力チェック
 		$validation = Validation::forge();
 		$validation->add('username', 'ユーザー名')
@@ -98,13 +107,13 @@ class Controller_Admin extends Controller_Template
 		return $validation;
 	}
 
-		/**
-	 *
+	/**
+	 * @brif    ログアウト処理
 	 * @access  public
 	 * @return  Response
 	 */
 	public function action_logout() {
-        // ログアウト処理
+    // ログアウト処理
 		Auth::logout();
 		Response::redirect('/');
 	}
@@ -117,7 +126,7 @@ class Controller_Admin extends Controller_Template
 	public function action_editintro()
 	{
 		$this->template->content = View::forge('admin/editintro');
-		$this->template->content->intro = Model_Intro::getAll();
+		$this->template->content->intro = Model_Intro::find('all');
 	}
 	/**
 	 *
@@ -127,7 +136,7 @@ class Controller_Admin extends Controller_Template
 	public function action_editnotification()
 	{
 		$this->template->content = View::forge('admin/editnotification');
-		$this->template->content->notification = Model_Notification::getAll();
+		$this->template->content->notification = Model_Notification::find('all');
 	}
 
 		/**
@@ -138,7 +147,7 @@ class Controller_Admin extends Controller_Template
 		public function action_editrecruit()
 		{
 			$this->template->content = View::forge('admin/editrecruit');
-			$this->template->content->recruit = Model_Recruit::getAll();
+			$this->template->content->recruit = Model_Recruit::find('all');
 		}
 
 	/**

@@ -33,7 +33,7 @@
 	</nav>
 </div>
 <div class="row clearfix">
-	<div class="col-md-12 column text-center" id="menulist">
+	<div class="col-md-12 column text-center" style="margin-bottom:45px" id="menulist">
 		<h1 class="text-center">
 			お品書き
 		</h1>
