@@ -62,49 +62,33 @@ class Controller_Admin extends Controller_Template
 		$this->template->title = 'ろぐいん';
 		$this->template->content = View::forge('admin/login');
 		
-    if (Security::check_token()) {
-    // エスケープ
-  		$username = mysqli_real_escape_string(Input::post('username', null));
-  		$password = mysqli_real_escape_string(Input::post('password', null));
-
-      $result_validate = '';
-      if ($username !== null && $password !== null) {
-  			$validation = Model_User::validateLogin();
-  			$errors = $validation->error();
-  			if (empty($errors)) {
-  			// ログイン認証を行う
-  				$auth = Auth::instance();
-  				if ($auth->login($username, $password)) {
-  				// ログイン成功
-  					Response::redirect('admin/index');
-  				}
-  				$result_validate = "ログインに失敗しました。";
-  			} else {
-  				$result_validate = $validation->show_errors();
-  		  }
-		  }
-		  $this->template->content->set_safe('errmsg', $result_validate);
+    // 初期表示時
+    if (!Security::check_token()) {
+      return ;
     }
-	}
 
-	/**
-	 * @brif    ログインバリデート
-	 * @access  private
-	 * @return  
-	 */
-  private function validate_login(){
-		// 入力チェック
-		$validation = Validation::forge();
-		$validation->add('username', 'ユーザー名')
-		->add_rule('required')
-		->add_rule('min_length', 4)
-		->add_rule('max_length', 15);
-		$validation->add('password', 'パスワード')
-		->add_rule('required')
-		->add_rule('min_length', 6)
-		->add_rule('max_length', 20);
-		$validation->run();
-		return $validation;
+    // バリデーション
+  	$validation = Model_User::loginValidate();
+  	$errors = $validation->error();
+    if (!empty($errors)) {
+      // エラーの設定
+  		$result_validate = $validation->show_errors();
+      $this->template->content->set_safe('errmsg', $result_validate);
+      return ;
+    }
+
+    // ログイン処理
+  	$auth = Auth::instance();
+    $user_data = $validation->validated();
+  	if (!$auth->login($user_data['username'], $user_data['password'])) {
+      // エラー処理
+  	  $result_validate = "ログインに失敗しました。";
+      $this->template->content->set_safe('errmsg', $result_validate);
+  	  return ;
+  	}
+
+    // ログイン成功
+  	Response::redirect('admin/index');
 	}
 
 	/**

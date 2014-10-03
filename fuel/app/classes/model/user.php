@@ -22,7 +22,7 @@ class Model_User extends \Orm\Model
 	 * @access  private
 	 * @return  
 	 */
-  public static function validateLogin(){
+  public static function loginValidate(){
 		$validation = Validation::forge();
 
 		$validation->add('username', 'ユーザー名')
