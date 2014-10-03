@@ -28,8 +28,8 @@ class Controller_Admin extends Controller_Template
 		$method = Uri::segment(2);
 
     // ログインチェック
-		if (!Auth::check()) {
-			Response::forge('admin/login');
+		if (!Auth::check() && $method !== 'login') {
+			Response::redirect('admin/login');
 		}
 	}
 
