@@ -84,9 +84,8 @@ class Controller_Top extends Controller_Template
 	public function action_notification()
 	{
 		$this->template->content = View::forge('top/notification');
-    
-    $id = Input::get("id",null);
-		$this->template->content->notification = Model_Notification::find($id);
+		
+		$this->template->content->notification = Model_Notification::find(Input::get("id",null));
 	}
 
 	/**

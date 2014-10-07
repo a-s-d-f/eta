@@ -104,6 +104,7 @@ class Controller_Admin extends Controller_Template
 
 	/**
 	 *
+   * @brif    紹介情報編集
 	 * @access  public
 	 * @return  Response
 	 */
@@ -111,9 +112,16 @@ class Controller_Admin extends Controller_Template
 	{
 		$this->template->content = View::forge('admin/editintro');
 		$this->template->content->intro = Model_Intro::find('all');
+
+    // 初期表示時
+    if (!Security::check_token()) {
+      return ;
+    }
+		Model_Intro::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
 	}
 	/**
 	 *
+   * @brif    お知らせ編集
 	 * @access  public
 	 * @return  Response
 	 */
@@ -123,8 +131,9 @@ class Controller_Admin extends Controller_Template
 		$this->template->content->notification = Model_Notification::find('all');
 	}
 
-		/**
+	/**
 	 *
+   * @brif    お知らせ編集
 	 * @access  public
 	 * @return  Response
 	 */
