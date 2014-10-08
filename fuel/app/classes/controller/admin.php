@@ -323,8 +323,9 @@ class Controller_Admin extends Controller_Template
 			Model_Recruit::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
 			case "menu":
 				$menu       = Input::post('menu');
+				$temp_file  = Input::file('upload_file');
 				$menu_model = Model_Menu::find($menu['id']);
-				if (Input::file('upload_file')['size'] !== 0) {
+				if ($temp_file['size'] !== 0) {
 					Config::load('app');
 					$config = array(
 						'path' => Config::get('MENU_IMG_DIR'),
@@ -359,8 +360,9 @@ class Controller_Admin extends Controller_Template
 				}
 			case "wine":
 				$wine       = Input::post('wine');
+				$temp_file  = Input::file('upload_file');
 				$wine_model = Model_Wine::find($wine['id']);
-				if (Input::file('upload_file')['size'] !== 0) {
+				if ($temp_file['size'] !== 0) {
 					Config::load('app');
 					$config = array(
 						'path' => Config::get('WINE_IMG_DIR'),
@@ -396,8 +398,9 @@ class Controller_Admin extends Controller_Template
 				}
 			case "seat":
 				$seat       = Input::post('seat');
+				$temp_file  = Input::file('upload_file');
 				$seat_model = Model_seat::find($seat['id']);
-				if (Input::file('upload_file')['size'] !== 0) {
+				if ($temp_file['size'] !== 0) {
 					Config::load('app');
 					$config = array(
 						'path' => Config::get('SEAT_IMG_DIR'),
