@@ -1,3 +1,4 @@
+<?php Config::load('dir');?>
 <div class="row clearfix" id="header">
 	<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation" id="navbar">
 		<div class="navbar-header">
@@ -84,8 +85,8 @@
 		<div class="margin-top2" id="photo">
 			<?php foreach($seat as $val):?>
 				<div class="col-sm-6 column margin-2">
-					 <a rel="lightbox" href=<?php echo Uri::base()."assets/img/".$val["imgurl"];?> data-lightbox="seat" data-title=<?php echo $val["name"];?>>
-                        <?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
+					 <a rel="lightbox" href=<?php echo Config::get('SEAT_IMG_PATH').$val["imgurl"];?> data-lightbox="seat" data-title=<?php echo $val["name"];?>>
+                        <?php echo Asset::img('seat/'.$val["imgurl"],array('class'=>'img-responsive'));?>
                     </a>
 				</div>
 			<?php endforeach;?>

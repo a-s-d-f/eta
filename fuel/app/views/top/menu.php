@@ -1,3 +1,4 @@
+<?php Config::load('dir');?>
 <div class="row clearfix">
 	<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
 		<div class="navbar-header">
@@ -45,7 +46,9 @@
 		<div class="margin-top2 text-left isotopeMenu">
 			<?php foreach($menu as $val):?>
 				<div <?php echo "class='col-sm-6 col-lg-4 item ".$val["type"]."'";?>>
-				<?php echo Asset::img($val["imgurl"],array('class'=>'img-responsive'));?>
+				<a rel="lightbox" href=<?php echo Config::get('MENU_IMG_PATH') . $val["imgurl"];?> data-lightbox="wine" data-title=<?php echo $val["comment"];?>>
+					<?php echo Asset::img('menu/' . $val["imgurl"],array('class'=>'img-responsive'));?>
+				</a>
 				<blockquote>
 					<p><?php echo $val["comment"];?></p>
 					<small><?php echo $val["name"];?></small>

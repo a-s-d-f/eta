@@ -1,5 +1,3 @@
 .DS_Store
 *_self.php
 /fuel/app/logs
-/public/assets/img/wine
-/public/assets/img/menu

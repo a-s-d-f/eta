@@ -22,7 +22,10 @@ class Controller_Admin extends Controller_Template
   */
 	public function before() {
 		// 決まり文句
-    parent::before();
+    	parent::before();
+
+    	// Configをロード
+    	Config::load('dir');
 
 		// リクエストアクションを取得
 		$method = Uri::segment(2);
@@ -162,9 +165,10 @@ class Controller_Admin extends Controller_Template
 	public function action_addmenu()
 	{
 		$this->template->content = View::forge('admin/addmenu');
+
 		if(isset($_POST["name"])){
 			$config = array(
-				'path' => DOCROOT.'assets/img/',
+				'path' => Config::get('MENU_IMG_DIR'),
 				'auto_rename' => true,
 				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png','bmp'),
 				);
@@ -203,7 +207,7 @@ class Controller_Admin extends Controller_Template
 		$this->template->content = View::forge('admin/addwine');
 		if(isset($_POST["name"])){
 			$config = array(
-				'path' => DOCROOT.'assets/img/wine/',
+				'path' => Config::get('WINE_IMG_DIR'),
 				'auto_rename' => true,
 				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
 				);
@@ -242,7 +246,7 @@ class Controller_Admin extends Controller_Template
 		$this->template->content = View::forge('admin/addseat');
 		if(isset($_POST["name"])){
 			$config = array(
-				'path' => DOCROOT.'assets/img/',
+				'path' => Config::get('SEAT_IMG_DIR'),
 				'auto_rename' => true,
 				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
 				);
@@ -276,7 +280,7 @@ class Controller_Admin extends Controller_Template
 			Model_Recruit::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
 			case "menu":
 			$config = array(
-				'path' => DOCROOT.'assets/img/',
+				'path' => Config::get('MENU_IMG_DIR'),
 				'auto_rename' => true,
 				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
 				);
@@ -294,7 +298,7 @@ class Controller_Admin extends Controller_Template
 			break;
 			case "wine":
 			$config = array(
-				'path' => DOCROOT.'assets/img/wine/',
+				'path' => Config::get('WINE_IMG_DIR'),
 				'auto_rename' => true,
 				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
 				);
@@ -312,7 +316,7 @@ class Controller_Admin extends Controller_Template
 			break;
 			case "seat":
 			$config = array(
-				'path' => DOCROOT.'assets/img/',
+				'path' => Config::get('SEAT_IMG_DIR'),
 				'auto_rename' => true,
 				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
 				);

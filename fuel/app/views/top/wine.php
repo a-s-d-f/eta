@@ -1,3 +1,4 @@
+<?php Config::load('dir');?>
 <div class="row clearfix">
 	<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
 		<div class="navbar-header">
@@ -39,7 +40,6 @@
 		</h1>
 		<div id="wine-filter" class=" margin-top1">
 			<a class="btn btn-lg btn-default" type="button" data-filter="*">全て</a>
-			<a class="btn btn-lg btn-default" type="button" data-filter=".hitomi"> ヒトミ</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".red"> 赤</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".white"> 白</a>
 			<a class="btn btn-lg btn-default" type="button" data-filter=".spark"> 泡</a>
@@ -48,8 +48,8 @@
 			<?php foreach($wine as $val):?>
 				<div <?php echo "class='col-sm-12 col-sm-6 col-lg-4 wineitem item ".$val["type"]."'";?>>
 					<div class="col-xs-5">
-						<a rel="lightbox" href=<?php echo Uri::base()."assets/img/wine/".$val["imgurl"];?> data-lightbox="wine" data-title=<?php echo $val["comment"];?>>
-	                        <?php echo Asset::img("wine/".$val["imgurl"],array('class'=>'img-responsive'));?>
+						<a rel="lightbox" href=<?php echo Config::get('WINE_IMG_PATH') . $val["imgurl"];?> data-lightbox="wine" data-title=<?php echo $val["comment"];?>>
+	                        <?php echo Asset::img("wine/" . $val["imgurl"],array('class'=>'img-responsive'));?>
 	                    </a>
                     </div>
 					<div class="col-xs-7">
