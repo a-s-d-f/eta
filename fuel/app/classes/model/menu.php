@@ -37,18 +37,6 @@ class Model_Menu extends \Orm\Model
 		->execute();
 	}
 
-	public static function up($id,$name,$type,$comment,$imgurl){
-		DB::update("menus")
-		->set(array(
-			"name" => $name,
-			"type" => $type,
-			"comment" => $comment,
-			"imgurl" => $imgurl,
-			))
-		->where("id","=",$id)
-		->execute();
-	}
-
 	public static function add($name,$type,$comment,$imgurl){
 		DB::insert("menus")
 		->set(array(

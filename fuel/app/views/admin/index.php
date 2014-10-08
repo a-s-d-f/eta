@@ -28,7 +28,10 @@
 		<div class="row">
 			<ul class="nav nav-pills nav-stacked">
 				<ul class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#">各種編集</a></li>
+					<li class="active"><a href="index">各種編集</a></li>
+					<li ><a href="menu">メニュー編集</a></li>
+					<li ><a href="wine">ワイン編集</a></li>
+					<li ><a href="seat">シート編集</a></li>
 				</ul>
 			</ul>
 		</div>
@@ -103,84 +106,6 @@
 		  <a href="editnotification" class="btn btn-lg btn-primary">編集</a>
 	  </div>
   </div>
-  <div class="row">
-	  <h2 class="text-center">お品書き</h2>
-	  <table class="table">
-		  <thead>
-			  <tr>
-				  <th>料理名</td>
-					<th>写真</th>
-					<th>編集</td>
-					<th>削除</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($datas['menu'] as $row):?>
-					<tr>
-						<td><?php echo $row["name"];?></td>
-						<td><a href=<?php echo Uri::base().'assets/img/'. $row["imgurl"];?> rel="lightbox-cats" class="btn btn-lg btn-primary" title=<?php echo $row["name"];?>>表示</a></td>
-						<td><a href=<?php echo "editmenu?id=".$row["id"]?> class="btn btn-lg btn-primary">編集</a></td>
-						<td><input type="button" class="btn btn-lg btn-primary delete" data-type="menu" data-id=<?php echo $row["id"];?> value="削除"></td>
-					</tr>
-				<?php endforeach;?>
-			</tbody>
-		</table>
-		<div class="form-group text-right">
-			<a href="addmenu" class="btn btn-lg btn-primary">追加</a>
-		</div>
-	</div>
-	<div class="row">
-		<h2 class="text-center">葡萄酒</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>葡萄酒名</td>
-					<th>写真</th>
-					<th>編集</td>
-					<th>削除</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($datas['wine'] as $row):?>
-					<tr>
-						<td><?php echo $row["name"];?></td>
-						<td><a href=<?php echo Uri::base().'assets/img/wine/'. $row["imgurl"];?> rel="lightbox-cats" class="btn btn-lg btn-primary" title=<?php echo $row["name"];?>>表示</a></td>
-						<td><a href=<?php echo "editwine?id=".$row["id"]?> class="btn btn-lg btn-primary">編集</a></td>
-						<td><input type="button" class="btn btn-lg btn-primary delete" data-type="wine"  data-id=<?php echo $row["id"];?> value="削除"></td>
-					</tr>
-				<?php endforeach?>
-			</tbody>
-		</table>
-		<div class="form-group text-right">
-			<a href="addwine" class="btn btn-lg btn-primary">追加</a>
-		</div>
-	</div>
-	<div class="row">
-		<h2 class="text-center">店内画像</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>画像名</td>
-					<th>写真</th>
-					<th>編集</td>
-					<th>削除</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach($datas['seat'] as $row):?>
-					<tr>
-						<td><?php echo $row["name"];?></td>
-						<td><a href=<?php echo Uri::base().'assets/img/'. $row["imgurl"];?> rel="lightbox-cats" class="btn btn-lg btn-primary" title=<?php echo $row["name"];?>>表示</a></td>
-						<td><a href=<?php echo "editseat?id=".$row["id"]?> class="btn btn-lg btn-primary">編集</a></td>
-						<td><input type="button" class="btn btn-lg btn-primary delete" data-type="seat" data-id=<?php echo $row["id"];?> value="削除"></td>
-					</tr>
-				<?php endforeach?>
-			</tbody>
-		</table>
-		<div class="form-group text-right">
-			<a href="addseat" class="btn btn-lg btn-primary">追加</a>
-		</div>
-	</div>
 	<div class="row">
 		<h2 class="text-center">採用情報</h2>
 		<table class="table">

@@ -49,12 +49,55 @@ class Controller_Admin extends Controller_Template
       'intro'        => Model_Intro::find('all'),
       'notification' => Model_Notification::find('all'),
       'recruit'      => Model_Recruit::find('all'),
-      'menu'         => Model_Menu::find('all'),
-      'wine'         => Model_Wine::find('all'),
-      'seat'         => Model_Seat::find('all'),
     );
     $this->template->content->datas = $datas;
 	}
+
+	/**
+	 * @brif    管理者トップを表示
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_menu(){
+	    $this->template->content = View::forge('admin/menu');
+
+	    // パラメータセット
+	    $datas = array(
+	      'menu' => Model_Menu::find('all'),
+	    );
+    	$this->template->content->datas = $datas;
+	}
+
+	/**
+	 * @brif    管理者トップを表示
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_wine(){
+	    $this->template->content = View::forge('admin/wine');
+
+	    // パラメータセット
+	    $datas = array(
+	      'wine' => Model_Wine::find('all'),
+	    );
+    	$this->template->content->datas = $datas;
+	}
+
+	/**
+	 * @brif    管理者トップを表示
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_seat(){
+	    $this->template->content = View::forge('admin/seat');
+
+	    // パラメータセット
+	    $datas = array(
+	      'seat' => Model_Seat::find('all'),
+	    );
+    	$this->template->content->datas = $datas;
+	}
+
 
 	/**
 	 * @brif    ログイン処理
@@ -279,59 +322,110 @@ class Controller_Admin extends Controller_Template
 			case "recruit":
 			Model_Recruit::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
 			case "menu":
-			$config = array(
-				'path' => Config::get('MENU_IMG_DIR'),
-				'auto_rename' => true,
-				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
-				);
-			Upload::process($config);
-			if (Upload::is_valid()) {
-				Upload::save();
-				if($file = Upload::get_files(0)){
-					Model_Menu::up(Input::post("id",null),Input::post("name",null),Input::post("category",null),Input::post("comment",null),$file["saved_as"]);
+				$menu       = Input::post('menu');
+				$menu_model = Model_Menu::find($menu['id']);
+				if (Input::file('upload_file')['size'] !== 0) {
+					Config::load('app');
+					$config = array(
+						'path' => Config::get('MENU_IMG_DIR'),
+						'auto_rename' => true,
+						'ext_whitelist' => Config::get('FILE.EXT'),
+					);
+					Upload::process($config);
+					if (!Upload::is_valid()) {
+						$this->template->content->set_safe('errmsg', "ファイルアップロードに失敗しました");
+						return ;
+					}
+					Upload::save();
+					if($file = Upload::get_files(0)){
+						$menu_model->set(array(
+							'name'     => $menu['name'],
+							'category' => $menu['category'],
+							'comment'  => $menu['comment'],
+							'imgurl'   => $file['saved_as'],
+						));
+						$menu_model->save();
+					}
+					return Response::redirect("/admin/editmenu?id=" . $menu['id']);
+				} else {
+					$menu_model->set(array(
+						'name'     => $menu['name'],
+						'category' => $menu['category'],
+						'comment'  => $menu['comment'],
+					));
+					$menu_model->save();
+
+					return Response::redirect("/admin/editmenu?id=" . $menu['id']);
 				}
-				return Response::redirect("/admin/");
-			}else{
-				$this->template->content = View::forge('admin/editwine');
-				$this->template->content->set_safe('errmsg', "ファイルアップロードに失敗しました");
-			}
-			break;
 			case "wine":
-			$config = array(
-				'path' => Config::get('WINE_IMG_DIR'),
-				'auto_rename' => true,
-				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
-				);
-			Upload::process($config);
-			if (Upload::is_valid()) {
-				Upload::save();
-				if($file = Upload::get_files(0)){
-					Model_Wine::up(Input::post("id",null),Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("comment",null),$file["saved_as"]);
+				$wine       = Input::post('wine');
+				$wine_model = Model_Wine::find($wine['id']);
+				if (Input::file('upload_file')['size'] !== 0) {
+					Config::load('app');
+					$config = array(
+						'path' => Config::get('WINE_IMG_DIR'),
+						'auto_rename' => true,
+						'ext_whitelist' => Config::get('FILE.EXT'),
+					);
+					Upload::process($config);
+					if (!Upload::is_valid()) {
+						$this->template->content->set_safe('errmsg', "ファイルアップロードに失敗しました");
+						return ;
+					}
+					Upload::save();
+					if($file = Upload::get_files(0)){
+						$wine_model->set(array(
+							'name'     => $wine['name'],
+							'category' => $wine['category'],
+							'money'    => $wine['money'],
+							'comment'  => $wine['comment'],
+							'imgurl'   => $file['saved_as'],
+						));
+						$wine_model->save();
+					}
+					return Response::redirect("/admin/editwine?id=" . $wine['id']);
+				} else {
+					$wine_model->set(array(
+						'name'     => $wine['name'],
+						'category' => $wine['category'],
+						'comment'  => $wine['comment'],
+					));
+					$wine_model->save();
+
+					return Response::redirect("/admin/editwine?id=" . $wine['id']);
 				}
-				return Response::redirect("admin/");
-			}else{
-				$this->template->content = View::forge('admin/editwine');
-				$this->template->content->set_safe('errmsg', "ファイルアップロードに失敗しました");
-			}
-			break;
 			case "seat":
-			$config = array(
-				'path' => Config::get('SEAT_IMG_DIR'),
-				'auto_rename' => true,
-				'ext_whitelist' => array( 'jpg', 'jpeg', 'gif', 'png'),
-				);
-			Upload::process($config);
-			if (Upload::is_valid()) {
-				Upload::save();
-				if($file = Upload::get_files(0)){
-					Model_Seat::up(Input::post("id",null),Input::post("name",null),$file["saved_as"]);
+				$seat       = Input::post('seat');
+				$seat_model = Model_seat::find($seat['id']);
+				if (Input::file('upload_file')['size'] !== 0) {
+					Config::load('app');
+					$config = array(
+						'path' => Config::get('SEAT_IMG_DIR'),
+						'auto_rename' => true,
+						'ext_whitelist' => Config::get('FILE.EXT'),
+					);
+					Upload::process($config);
+					if (!Upload::is_valid()) {
+						$this->template->content->set_safe('errmsg', "ファイルアップロードに失敗しました");
+						return ;
+					}
+					Upload::save();
+					if($file = Upload::get_files(0)){
+						$seat_model->set(array(
+							'name'     => $seat['name'],
+							'imgurl'   => $file['saved_as'],
+						));
+						$seat_model->save();
+					}
+					return Response::redirect("/admin/editseat?id=" . $seat['id']);
+				} else {
+					$seat_model->set(array(
+						'name'     => $seat['name'],
+					));
+					$seat_model->save();
+
+					return Response::redirect("/admin/editseat?id=" . $seat['id']);
 				}
-				return Response::redirect("/admin/");
-			}else{
-				$this->template->content = View::forge('admin/editwine');
-				$this->template->content->set_safe('errmsg', "ファイルアップロードに失敗しました");
-			}
-			break;
 		}
 		Response::redirect("admin/");
 	}

@@ -8,4 +8,12 @@
  */
 
 return array(
+	'FILE' => array(
+		'EXT' => array(
+			'jpg',
+			'jpeg',
+			'gif',
+			'png'
+		),
+	),
 );
