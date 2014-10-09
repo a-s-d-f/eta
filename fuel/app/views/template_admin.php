@@ -71,6 +71,7 @@ lang="en">
 		</div>
 	</body>
 <?php endif; ?>
+</html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <?php echo Asset::js('lightbox/lightbox.min.js');?>
 <?php echo Asset::js('admin/raphael-min.js');?>
@@ -79,4 +80,3 @@ lang="en">
 <?php echo Asset::js('admin/jquery.easy-pie-chart.js');?>
 <?php echo Asset::js("original/admin.js");?>
 <?php echo Asset::js("js-plugin/isotope/jquery.isotope.min.js");?>
-</html>
