@@ -316,11 +316,52 @@ class Controller_Admin extends Controller_Template
 	{
 		switch(Input::post("type",null)){
 			case "intro":
-			Model_Intro::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
+				$intro = Input::post('intro');
+				foreach ($intro['id'] as $key => $id) {
+					$data = array(
+						'title' => $intro['title'][$key],
+						'body'  => $intro['body'][$key],
+					);
+					if ($id !== "new") {
+						DB::update('intro')->set($data)->where('id',$id)->execute();
+					} else {
+						DB::insert('intro')->set($data)->execute();
+					}
+				}
+				return Response::redirect("/admin/editintro");
+
 			case "notification":
-			Model_Notification::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
+				$notification = Input::post('notification');
+				foreach ($notification['id'] as $key => $id) {
+					$data = array(
+						'title' => $notification['title'][$key],
+						'body'  => $notification['body'][$key],
+					);
+					if ($id !== "new") {
+						DB::update('notifications')->set($data)->where('id',$id)->execute();
+					} else {
+						DB::insert('notifications')->set($data)->execute();
+					}
+					DB::update('notifications')->set($data)->where('id',$id);
+				}
+				return Response::redirect("/admin/editnotification");
+
 			case "recruit":
-			Model_Recruit::up($_POST["title"],$_POST["body"],$_POST["id"]);break;
+				$recruit = Input::post('recruit');
+				foreach ($recruit['id'] as $key => $id) {
+					$data = array(
+						'title' => $recruit['title'][$key],
+						'body'  => $recruit['body'][$key],
+					);
+					if ($id !== "new") {
+						DB::update('recruits')->set($data)->where('id',$id)->execute();
+					} else {
+						DB::insert('recruits')->set($data)->execute();
+					}
+					DB::update('recruits')->set($data)->where('id',$id);
+				}
+				return Response::redirect("/admin/editrecruit");
+
 			case "menu":
 				$menu       = Input::post('menu');
 				$temp_file  = Input::file('upload_file');
@@ -358,6 +399,7 @@ class Controller_Admin extends Controller_Template
 
 					return Response::redirect("/admin/editmenu?id=" . $menu['id']);
 				}
+
 			case "wine":
 				$wine       = Input::post('wine');
 				$temp_file  = Input::file('upload_file');
@@ -396,6 +438,7 @@ class Controller_Admin extends Controller_Template
 
 					return Response::redirect("/admin/editwine?id=" . $wine['id']);
 				}
+
 			case "seat":
 				$seat       = Input::post('seat');
 				$temp_file  = Input::file('upload_file');

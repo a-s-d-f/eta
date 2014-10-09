@@ -8,25 +8,27 @@ $(function(){
 			});
 		});
 		$('#addcol').click(function(){
-			var content = "<tr><td><input name='title[]' class='input-lg form-control' type='text' value=''></td><td><textarea name='body[]'class='form-control'rows='2' placeholder='内容を改行するにはカンマ( , )を入れてください'></textarea></td></td></tr><input type='hidden' name='id[]' value='new'>";
+      var type = $(this).attr("data-type");
+			var content = "<tr><td><input name='"+type+"[title][]' class='input-lg form-control' type='text' value=''></td><td><textarea name='"+type+"[body][]'class='form-control'rows='2' placeholder='内容を改行するにはカンマ( , )を入れてください'></textarea></td></td></tr><input type='hidden' name='"+type+"[id][]' value='new'>";
 			$('#target').append(content);
 		});
 		$('.delete').click(function(){
-			var id= $(this).attr("data-id");
-			var type= $(this).attr("data-type");
-			$.ajax({
-				type: "POST",
-				url: "/ajax/delete",
-				dataType:"json",
-				data: {"id": id,"type":type},
-				success: function(){
-					alert("指定データを削除しました");
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) {
-					alert("削除中にエラーが発生しました");
-				}
-			});
-			$(this).parent().parent().remove();
+      var id= $(this).attr("data-id");
+      var type= $(this).attr("data-type");
+      if(window.confirm('本当に削除しますか？')){
+        $.ajax({
+          type: "POST",
+          url: "/ajax/delete",
+          dataType:"json",
+          data: {"id": id,"type":type},
+          success: function(){
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("削除中にエラーが発生しました");
+          }
+        });
+        $(this).parent().parent().remove();
+      }
 		});
 	});
 });

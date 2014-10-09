@@ -30,17 +30,17 @@ class Controller_Ajax extends Controller_Rest{
 		$type = Input::post("type",null);
 		switch($type){
 			case "intro":
-			Model_Intro::rm(Input::post("id",null));break;
+			Model_Intro::find(Input::post("id",null))->delete();break;
 			case "notification":
-			Model_Notification::rm(Input::post("id",null));break;
+			Model_Notification::find(Input::post("id",null))->delete();break;
 			case "recruit":
-			Model_Recruit::rm(Input::post("id",null));break;
+			Model_Recruit::find(Input::post("id",null))->delete();break;
 			case "menu":
-			Model_Menu::rm(Input::post("id",null));break;
+			Model_Menu::find(Input::post("id",null))->delete();break;
 			case "wine":
-			Model_Wine::rm(Input::post("id",null));break;
+			Model_Wine::find(Input::post("id",null))->delete();break;
 			case "seat":
-			Model_Seat::rm(Input::post("id",null));break;
+			Model_Seat::find(Input::post("id",null))->delete();break;
 		}
 		exit;
 	}
