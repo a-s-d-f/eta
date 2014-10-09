@@ -51,6 +51,7 @@
 				<tr>
 					<th>題</th>
 					<th>本文</th>
+					<th>削除</th>
 				</tr>
 			</thead>
 			<tbody id="target">
