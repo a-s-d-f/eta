@@ -58,13 +58,18 @@ lang="en">
 					<div class="row">
 						<div class="col-md-3">
 							<ul class="nav nav-pills nav-stacked">
-								<ul class="nav nav-pills nav-stacked">
-									<li class="active"><a href="index">各種編集</a></li>
-									<li ><a href="menu">メニュー編集</a></li>
-									<li ><a href="wine">ワイン編集</a></li>
-									<li ><a href="seat">シート編集</a></li>
-								</ul>
+								<li class="active"><a href="index">各種編集</a></li>
+								<li ><a href="menu">メニュー編集</a></li>
+								<li ><a href="wine">ワイン編集</a></li>
+								<li ><a href="seat">シート編集</a></li>
+								<li>
+								    <a href="#" class="alert-success">
+								    	<span class="badge pull-right" style="font-size:0.8em;margin-top:4px;"><?php echo  Model_Counter::query()->count(); ?></span>
+								    	累計アクセス数
+									</a>
+								</li>
 							</ul>
+
 						</div>
 						<div class="col-md-9">
 							<?php echo $content;?>

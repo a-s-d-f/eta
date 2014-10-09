@@ -376,3 +376,11 @@ html, body,#container{
 .wineitem{
 	height:300px;
 }
+
+.sb{
+	opacity:0.7;
+	-webkit-transition:0.3s;
+}
+.sb:hover{
+	opacity:1;
+};

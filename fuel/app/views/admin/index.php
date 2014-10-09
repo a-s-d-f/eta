@@ -3,10 +3,10 @@
 	<div class="navbar navbar-inner block-header">
 		<h2 class="text-center">デバイス別アクセス</h2>
 		<div class="pull-right" id="sb">
-			<span class="badge badge-warning" style="cursor:pointer" data-filter="d">日</span>
-			<span class="badge badge-warning" style="cursor:pointer" data-filter="w">週</span>
-			<span class="badge badge-warning" style="cursor:pointer" data-filter="m">月</span>
-			<span class="badge badge-warning" style="cursor:pointer" data-filter="y">年</span>
+			<span class="badge badge-warning sb" style="font-size:1em;cursor:pointer" data-filter="d">日</span>
+			<span class="badge badge-warning sb" style="font-size:1em;cursor:pointer" data-filter="w">週</span>
+			<span class="badge badge-warning sb" style="font-size:1em;cursor:pointer" data-filter="m">月</span>
+			<span class="badge badge-warning sb" style="font-size:1em;cursor:pointer" data-filter="y">年</span>
 		</div>
 	</div>
 	<div class="block-content collapse in">
