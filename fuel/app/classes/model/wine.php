@@ -9,6 +9,7 @@ class Model_Wine extends \Orm\Model
 		'money',
 		'siteurl',
 		'imgurl',
+		'stock',
 	);
 
 	protected static $_table_name = 'wines';

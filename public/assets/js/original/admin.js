@@ -30,6 +30,46 @@ $(function(){
         $(this).parent().parent().remove();
       }
 		});
+    $('.plus').click(function(){
+      var id= $(this).attr("data-id");
+      var temp_num = parseInt($('#'+id).val());
+      if (temp_num < 99) {
+        $('#'+id).val(temp_num+1);
+        $.ajax({
+          type: "POST",
+          url: "/ajax/update_stock",
+          dataType:"json",
+          data: {"id": id,"stock":temp_num+1},
+          success: function(){
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("更新中にエラーが発生しました");
+          }
+        });
+      } else {
+        alert('100以上にはできません');
+      }
+    });
+    $('.minus').click(function(){
+      var id= $(this).attr("data-id");
+      var temp_num = parseInt($('#'+id).val());
+      if (temp_num > 0) {
+        $('#'+id).val(temp_num-1);
+        $.ajax({
+          type: "POST",
+          url: "/ajax/update_stock",
+          dataType:"json",
+          data: {"id": id,"stock":temp_num-1},
+          success: function(){
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("更新中にエラーが発生しました");
+          }
+        });
+      } else {
+        alert('0以下にはできません');
+      }
+    });
 	});
 });
 $(window).load(function(){

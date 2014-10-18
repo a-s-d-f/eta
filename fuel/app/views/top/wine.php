@@ -58,6 +58,8 @@
 							<dd>- <?php echo $val["name"];?></dd>
 							<dt>値段</dt>
 							<dd>- <?php echo $val["money"];?></dd>
+							<dt>在庫</dt>
+							<dd>- <?php if($val['stock']>0){echo'あり';}else{echo'なし';}?></dd>
 						</dl>
 					</div>
 				</div>

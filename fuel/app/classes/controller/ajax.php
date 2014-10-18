@@ -48,6 +48,20 @@ class Controller_Ajax extends Controller_Rest{
 	/**
 	 *
 	 * @access  public
+	 * @return  No return
+	 */
+	public function post_update_stock(){
+		$id    = Input::post('id',null);
+		$stock = Input::post('stock',null);
+		$data = array(
+			'stock' => $stock,
+		);
+		DB::update('wines')->set($data)->where('id',$id)->execute();
+	}
+
+	/**
+	 *
+	 * @access  public
 	 * @return  JSON
 	 */
 	public function post_getarea(){
