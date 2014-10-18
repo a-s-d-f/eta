@@ -7,7 +7,7 @@ class Model_Wine extends \Orm\Model
 		'name',
 		'type',
 		'money',
-		'comment',
+		'siteurl',
 		'imgurl',
 	);
 

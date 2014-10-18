@@ -107,7 +107,7 @@ class Controller_Admin extends Controller_Template
 	public function action_login(){
 		$this->template->title = 'ろぐいん';
 		$this->template->content = View::forge('admin/login');
-		
+
     // 初期表示時
     if (!Security::check_token()) {
       return ;
@@ -258,7 +258,7 @@ class Controller_Admin extends Controller_Template
 			if (Upload::is_valid()) {
 				Upload::save();
 				if($file = Upload::get_files(0)){
-					Model_Wine::add(Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("comment",null),$file["saved_as"]);
+					Model_Wine::add(Input::post("name",null),Input::post("category",null),Input::post("money",null),Input::post("siteurl",null),$file["saved_as"]);
 				}
 				return Response::redirect("/admin/");
 			}else{
@@ -422,7 +422,7 @@ class Controller_Admin extends Controller_Template
 							'name'     => $wine['name'],
 							'category' => $wine['category'],
 							'money'    => $wine['money'],
-							'comment'  => $wine['comment'],
+							'siteurl'  => $wine['siteurl'],
 							'imgurl'   => $file['saved_as'],
 						));
 						$wine_model->save();
@@ -432,7 +432,7 @@ class Controller_Admin extends Controller_Template
 					$wine_model->set(array(
 						'name'     => $wine['name'],
 						'category' => $wine['category'],
-						'comment'  => $wine['comment'],
+						'siteurl'  => $wine['siteurl'],
 					));
 					$wine_model->save();
 

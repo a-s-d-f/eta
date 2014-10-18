@@ -25,8 +25,8 @@
 				<td><input name="money" type="text" class="form-control"></td>
 			</tr>
 			<tr>
-				<th>説明</th>
-				<td><textarea name="comment" class="form-control" rows="5"></textarea></td>
+				<th>サイトURL</th>
+				<td><textarea name="siteurl" class="form-control" rows="3"></textarea></td>
 			</tr>
 			<tr>
 

@@ -28,7 +28,7 @@
 					</tr>
 					<tr>
 						<th>説明</th>
-						<td><textarea name="wine[comment]" class="form-control" rows="5" ><?php echo $val["comment"] ?></textarea></td>
+						<td><textarea name="wine[siteurl]" class="form-control" rows="3" ><?php echo $val["siteurl"] ?></textarea></td>
 					</tr>
 					<tr>
 						<th>画像</th>

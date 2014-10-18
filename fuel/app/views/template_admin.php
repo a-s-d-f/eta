@@ -49,10 +49,10 @@ lang="en">
 					<div class="row">
 						<div class="col-md-3">
 							<ul class="nav nav-pills nav-stacked">
-								<li class="active"><a href="index">各種編集</a></li>
-								<li ><a href="menu">メニュー編集</a></li>
-								<li ><a href="wine">ワイン編集</a></li>
-								<li ><a href="seat">シート編集</a></li>
+								<li <?php if (Uri::segment(2)=='index'||Uri::segment(2)=='') echo 'class="active"' ?>><a href="index">各種編集</a></li>
+								<li <?php if (Uri::segment(2)=='menu') echo 'class="active"' ?>><a href="menu">メニュー編集</a></li>
+								<li <?php if (Uri::segment(2)=='wine') echo 'class="active"' ?>><a href="wine">ワイン編集</a></li>
+								<li <?php if (Uri::segment(2)=='seat') echo 'class="active"' ?>><a href="seat">シート編集</a></li>
 								<li>
 								    <a href="#" class="alert-success">
 								    	<span class="badge pull-right" style="font-size:0.8em;margin-top:4px;"><?php echo  Model_Counter::query()->count(); ?></span>
