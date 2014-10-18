@@ -8,7 +8,11 @@ lang="en">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<title>いーた</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<?php echo Asset::css("bootstrap/bootstrap.css");?>
+	<?php echo Asset::css("original/bootstrap-custom.css");?>
+	<?php echo Asset::css("original/original.css");?>
+	<!-- lightBox -->
+	<?php echo Asset::css('lightbox/lightbox.css');?>
 </head>
 <body data-spy="scroll">
 	<div class="container-fluid" id="container">
@@ -48,12 +52,8 @@ lang="en">
 	</div>
 </body>
 </html>
-<?php echo Asset::css("bootstrap/bootstrap.css");?>
-<?php echo Asset::css("original/bootstrap-custom.css");?>
-<?php echo Asset::css("original/original.css");?>
 
-<!-- lightBox -->
-<?php echo Asset::css('lightbox/lightbox.css');?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <?php echo Asset::js("bootstrap/bootstrap.js");?>
 <?php echo Asset::js('lightbox/lightbox.min.js');?>
 <?php echo Asset::js("js-plugin/isotope/jquery.isotope.min.js");?>
