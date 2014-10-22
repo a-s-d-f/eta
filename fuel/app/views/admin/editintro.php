@@ -10,10 +10,10 @@
 		<tbody id="target">
 			<?php foreach($intro as $row):?>
 				<tr>
-					<td><input name="intro[title][]" class="input-lg form-control" type="text" value=<?php echo $row["title"]; ?>></td>
+					<td><input name="intro[title][]" class="input-lg form-control" type="text" value='<?php echo $row["title"]; ?>'></td>
 					<td><textarea name="intro[body][]" style="resize:vertical" class="form-control"><?php echo $row["body"]; ?></textarea></td>
 				</tr>
-				<input type="hidden" name="intro[id][]" value=<?php echo $row["id"];?>>
+				<input type="hidden" name="intro[id][]" value='<?php echo $row["id"];?>'>
 			<?php endforeach; ?>
 			<input type="hidden" name="type" value="intro">
 		</tbody>

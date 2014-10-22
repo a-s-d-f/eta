@@ -419,7 +419,7 @@ class Controller_Admin extends Controller_Template
 					Upload::save();
 					if($file = Upload::get_files(0)){
 						$wine_model->set(array(
-							'name'     => $wine['name'],
+							'name'     => htmlspecialchars($wine['name']),
 							'category' => $wine['category'],
 							'money'    => $wine['money'],
 							'siteurl'  => $wine['siteurl'],
@@ -430,7 +430,7 @@ class Controller_Admin extends Controller_Template
 					return Response::redirect("/admin/editwine?id=" . $wine['id']);
 				} else {
 					$wine_model->set(array(
-						'name'     => $wine['name'],
+						'name'     => htmlspecialchars($wine['name']),
 						'category' => $wine['category'],
 						'siteurl'  => $wine['siteurl'],
 					));

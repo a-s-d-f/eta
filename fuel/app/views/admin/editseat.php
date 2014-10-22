@@ -6,14 +6,14 @@
 			<tbody>
 				<tr>
 					<th>座席名</th>
-					<td><input name="seat[name]" type="text" class="form-control" value=<?php echo $val["name"]?>></td>
+					<td><input name="seat[name]" type="text" class="form-control" value='<?php echo $val["name"]?>'></td>
 				</tr>
 				<tr>
 					<th>ファイル選択</th>
 					<td><input class="form-control" type="file" name="upload_file"></td>
 				</tr>
 			</tbody>
-			<input type="hidden" name="seat[id]" value=<?php echo $val["id"];?>>
+			<input type="hidden" name="seat[id]" value='<?php echo $val["id"];?>'>
 			<input type="hidden" name="type" value="seat">
 		</table>
 	<?php endforeach;?>

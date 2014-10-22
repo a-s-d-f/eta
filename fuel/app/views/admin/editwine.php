@@ -5,14 +5,14 @@
 	<?php endif; ?>
 	<?php foreach($wine as $val):?>
 		<div class="col-md-6">
-			<img src=<?php echo Config::get('WINE_IMG_PATH') . $val["imgurl"];?> class="img-responsive" alt="">
+			<img src='<?php echo Config::get('WINE_IMG_PATH') . $val["imgurl"];?>' class="img-responsive" alt="">
 		</div>
 		<div class="col-md-6">
 			<table class="table">
 				<tbody>
 					<tr>
-						<th>料理名</th>
-						<td><input name="wine[name]" type="text" class="form-control" value=<?php echo $val["name"]?>></td>
+						<th>ワイン名</th>
+						<td><input name="wine[name]" type="text" class="form-control" value='<?php echo $val["name"]?>'></td>
 					</tr>
 					<tr>
 						<th>種類</th>
@@ -24,7 +24,7 @@
 					</tr>
 					<tr>
 						<th>金額</th>
-						<td><input type="text" class="form-control" name="wine[money]" value=<?php echo $val["money"]?>></td>
+						<td><input type="text" class="form-control" name="wine[money]" value='<?php echo $val["money"]?>'></td>
 					</tr>
 					<tr>
 						<th>説明</th>
@@ -35,7 +35,7 @@
 						<td><input name="upload_file" class="form-control" type="file"></td>
 					</tr>
 				</tbody>
-				<input type="hidden" name="wine[id]" value=<?php echo $val["id"];?>>
+				<input type="hidden" name="wine[id]" value='<?php echo $val["id"];?>'>
 				<input type="hidden" name="type" value="wine">
 			</table>
 			<div class="form-group text-right">

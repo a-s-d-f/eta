@@ -12,7 +12,7 @@
 				<tbody>
 					<tr>
 						<th>料理名</th>
-						<td><input name="menu[name]" type="text" class="form-control" value=<?php echo $val["name"]?>></td>
+						<td><input name="menu[name]" type="text" class="form-control" value='<?php echo $val["name"]?>'></td>
 					</tr>
 					<tr>
 						<th>説明</th>

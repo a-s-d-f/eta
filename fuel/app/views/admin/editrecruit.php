@@ -10,10 +10,10 @@
 		<tbody id="target">
 			<?php foreach($recruit as $val):?>
 				<tr>
-					<td><input name="notification[title][]" class="input-lg form-control" type="text" value=<?php echo $val["title"]; ?>></td>
+					<td><input name="notification[title][]" class="input-lg form-control" type="text" value='<?php echo $val["title"]; ?>'></td>
 					<td><textarea name="notification[body][]" style="resize:vertical" class="form-control"><?php echo $val["body"]; ?></textarea></td>
 				</tr>
-				<input type="hidden" name="notification[id][]" value=<?php echo $val["id"];?>>
+				<input type="hidden" name="notification[id][]" value='<?php echo $val["id"];?>'>
 			<?php endforeach; ?>
 			<input type="hidden" name="type" value="recruit">
 		</tbody>
